@@ -1,0 +1,42 @@
+h1, h2, h3 { text-wrap: balance; }
+
+.label {
+  font-family: var(--f-body);
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: var(--c-gold);
+}
+
+.h2 {
+  margin: 0;
+  font-family: var(--f-display);
+  font-size: var(--fs-h2);
+  line-height: .98;
+  font-weight: 800;
+  color: var(--c-fg-strong);
+}
+
+.lede {
+  margin: 0;
+  max-width: 460px;
+  font-size: var(--fs-lede);
+  color: var(--c-muted);
+}
+
+.rule {
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: currentColor;
+  flex: none;
+}
+
+.rule--violet { background: var(--c-violet); }
+
+em { font-style: italic; color: var(--c-fg); }

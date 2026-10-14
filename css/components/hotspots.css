@@ -1,0 +1,76 @@
+/* Pontos de detalhe sobre o retrato */
+
+.hotspot {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 44px;
+  height: 44px;
+  margin: -22px 0 0 -22px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hotspot::before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--c-gold);
+  animation: hotspot-pulse 2.6s ease-out infinite;
+}
+@keyframes hotspot-pulse {
+  from { transform: scale(1); opacity: .9; }
+  to   { transform: scale(2.4); opacity: 0; }
+}
+
+.hotspot__dot {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex: none;
+  border-radius: 50%;
+  background: var(--c-gold);
+  color: var(--c-on-gold);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.hotspot__tip {
+  position: absolute;
+  top: 50%;
+  left: 34px;
+  z-index: 3;
+  width: 230px;
+  padding: 12px 14px;
+  background: rgba(11, 10, 12, .94);
+  box-shadow: inset 0 0 0 1px rgba(212, 175, 90, .35);
+  color: var(--c-fg);
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: left;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-6px, -50%);
+  transition: opacity .35s, transform .35s var(--ease-out);
+}
+.hotspot__tip--left { left: auto; right: 34px; transform: translate(6px, -50%); }
+.hotspot__tip b { color: var(--c-gold); }
+
+.hotspot:hover .hotspot__tip,
+.hotspot:focus-visible .hotspot__tip,
+.hotspot.is-open .hotspot__tip { opacity: 1; transform: translate(0, -50%); }
+
+/* Toque: as dicas viram uma legenda numerada abaixo do retrato */
+@media (max-width: 960px), (hover: none) {
+  .hotspot__tip { display: none; }
+}

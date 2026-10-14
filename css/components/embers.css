@@ -1,0 +1,30 @@
+/* Brasas flutuantes — geradas por js/modules/embers.js */
+
+.embers {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.ember {
+  position: absolute;
+  bottom: -12px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 8px 2px currentColor;
+  opacity: 0;
+  animation: ember-float linear infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes ember-float {
+  0%   { opacity: 0;  transform: translate(0, 0); }
+  10%  { opacity: .9; }
+  70%  { opacity: .6; }
+  100% { opacity: 0;  transform: translate(var(--drift, 0px), -92vh); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .embers { display: none; }
+}

@@ -1,0 +1,97 @@
+/* Painel do menu móvel (≤ 960px) */
+
+.mobile-nav {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-mobile-nav);
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 40px;
+  padding: calc(var(--header-h) + env(safe-area-inset-top, 0px) + 32px) var(--gutter) calc(32px + env(safe-area-inset-bottom, 0px));
+  background:
+    radial-gradient(ellipse at 100% 0%, rgba(75, 42, 122, .35), transparent 55%),
+    var(--c-void);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  opacity: 0;
+  visibility: hidden;
+  clip-path: inset(0 0 100% 0);
+  transition: opacity .5s var(--ease-out), clip-path .7s var(--ease-in-out), visibility 0s linear .7s;
+}
+
+@media (max-width: 960px) {
+  .mobile-nav { display: flex; }
+}
+
+.mobile-nav.is-open {
+  opacity: 1;
+  visibility: visible;
+  clip-path: inset(0 0 0 0);
+  transition: opacity .4s var(--ease-out), clip-path .7s var(--ease-in-out), visibility 0s;
+}
+
+.mobile-nav__ring {
+  right: -280px;
+  bottom: -220px;
+  width: 640px;
+  height: 640px;
+  opacity: .5;
+}
+
+.mobile-nav__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-nav__list li,
+.mobile-nav__footer {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s var(--ease-out), transform .6s var(--ease-out);
+}
+.mobile-nav.is-open .mobile-nav__list li,
+.mobile-nav.is-open .mobile-nav__footer {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(.18s + var(--i) * .06s);
+}
+
+.mobile-nav__link {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--c-line-soft);
+  color: var(--c-fg-strong);
+  font-family: var(--f-display);
+  font-size: clamp(30px, 8vw, 48px);
+  font-weight: 700;
+  line-height: 1.1;
+  text-decoration: none;
+  transition: color .3s, padding-left .4s var(--ease-out);
+}
+.mobile-nav__link:hover,
+.mobile-nav__link:focus-visible { color: var(--c-gold); padding-left: 8px; }
+
+.mobile-nav__num {
+  width: 1.4em;
+  color: var(--c-gold);
+  font-size: .5em;
+  flex: none;
+}
+
+.mobile-nav__footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.mobile-nav__meta {
+  margin: 0;
+  color: var(--c-faint);
+  font-size: 10px;
+  font-weight: 500;
+  text-align: center;
+}

@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Last Ember — Uma saga samurai</title>
+  <meta name="description" content="Na noite em que todas as chamas do império se apagaram, Hotaru saiu das cinzas carregando a última brasa. Last Ember chega em 12.03.2027 para PS5, Xbox Series X|S e PC.">
+  <meta name="theme-color" content="#0B0A0C">
+
+  <!-- Open Graph / redes sociais -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Last Ember — Uma saga samurai">
+  <meta property="og:description" content="A última brasa do império está nas suas mãos. Pré-venda aberta.">
+  <meta property="og:image" content="assets/images/social/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+
+  <link rel="preload" as="image" href="assets/images/hotaru/hotaru-portrait.jpg" fetchpriority="high">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script>document.documentElement.classList.replace('no-js', 'js');</script>
+</head>
+<body>
+
+  <!-- Ícones reutilizáveis -->
+  <svg class="u-sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-flame" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.4" d="M12 2.5c1.6 3.4 5.2 5.6 5.2 10.2a5.2 5.2 0 0 1-10.4 0c0-2.6 1.5-4 2.6-5.7.6 1.7 1.4 2.5 2.6 2.6-.7-2.7-.5-5 0-7.1z"/><path fill="none" stroke="currentColor" stroke-width="1.4" d="M12 14.2c.9 1 1.6 1.7 1.6 2.8a1.6 1.6 0 0 1-3.2 0c0-1.1.7-1.8 1.6-2.8z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4.5v15l13-7.5z"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path fill="currentColor" d="M10 8.5v7l5.5-3.5z"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" fill="none" stroke="currentColor" stroke-width="1.5"/><path fill="none" stroke="currentColor" stroke-width="1.5" d="M3 16l5-5 4 4 3-3 6 6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.6" d="M5 5l14 14M19 5L5 19"/></symbol>
+  </svg>
+
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ================= CABEÇALHO ================= -->
+  <header class="site-header" data-header>
+    <div class="container site-header__inner">
+      <a class="brand" href="#topo" aria-label="Last Ember — voltar ao início">
+        <svg class="brand__icon" width="22" height="22"><use href="#i-flame"/></svg>
+        <span class="brand__name">Last Ember</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Principal">
+        <ul class="main-nav__list">
+          <li><a class="main-nav__link" href="#lenda">A Lenda</a></li>
+          <li><a class="main-nav__link" href="#hotaru">Hotaru</a></li>
+          <li><a class="main-nav__link" href="#jornada">Jornada</a></li>
+          <li><a class="main-nav__link" href="#combate">Combate</a></li>
+          <li><a class="main-nav__link" href="#generais">Generais</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-header__actions">
+        <a class="btn btn--gold btn--sm" href="#edicoes"><span>Comprar<span class="u-hide-xs"> agora</span></span></a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Abrir menu" data-menu-toggle>
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+          <span class="menu-toggle__bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu móvel -->
+  <div class="mobile-nav" id="mobile-nav" aria-label="Menu" data-mobile-nav inert>
+    <svg class="mobile-nav__ring ring" viewBox="0 0 800 800" aria-hidden="true">
+      <g class="ring__a"><circle cx="400" cy="400" r="372" fill="none" stroke="#D4AF5A" stroke-opacity=".3" stroke-dasharray="1 11"/></g>
+      <g class="ring__b"><circle cx="400" cy="400" r="330" fill="none" stroke="#A57CF0" stroke-opacity=".4" stroke-width="2" stroke-linecap="round" stroke-dasharray="1700 373"/></g>
+    </svg>
+    <nav class="mobile-nav__nav" aria-label="Seções">
+      <ol class="mobile-nav__list">
+        <li style="--i:0"><a class="mobile-nav__link" href="#lenda"><span class="mobile-nav__num">一</span>A Lenda</a></li>
+        <li style="--i:1"><a class="mobile-nav__link" href="#hotaru"><span class="mobile-nav__num">二</span>Hotaru</a></li>
+        <li style="--i:2"><a class="mobile-nav__link" href="#jornada"><span class="mobile-nav__num">三</span>Jornada</a></li>
+        <li style="--i:3"><a class="mobile-nav__link" href="#combate"><span class="mobile-nav__num">四</span>Combate</a></li>
+        <li style="--i:4"><a class="mobile-nav__link" href="#generais"><span class="mobile-nav__num">五</span>Generais</a></li>
+      </ol>
+    </nav>
+    <div class="mobile-nav__footer" style="--i:5">
+      <a class="btn btn--gold btn--lg btn--block" href="#edicoes">Comprar agora</a>
+      <p class="label mobile-nav__meta">12.03.2027 · PS5 · Xbox Series X|S · PC</p>
+    </div>
+  </div>
+
+  <main id="conteudo">
+
+    <!-- ================= HERO (100vh) ================= -->
+    <section class="hero" id="topo" aria-label="Last Ember">
+      <div class="hero__media" data-hero-media>
+        <img class="hero__poster" src="assets/images/hotaru/hotaru-portrait.jpg" alt="Hotaru, última samurai do clã Murasaki, em armadura negra e dourada com a katana na cintura" fetchpriority="high">
+        <!-- Vídeo do hero: coloque o arquivo em assets/videos/hero-loop.mp4 e ele substitui a imagem automaticamente -->
+        <video class="hero__video" autoplay muted loop playsinline preload="metadata" aria-hidden="true" data-hero-video>
+          <source src="assets/videos/hero-loop.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero__shade" aria-hidden="true"></div>
+
+      <svg class="hero__ring ring" viewBox="0 0 800 800" aria-hidden="true">
+        <g class="ring__a"><circle cx="400" cy="400" r="372" fill="none" stroke="#D4AF5A" stroke-opacity=".35" stroke-dasharray="1 11"/></g>
+        <g class="ring__b"><circle cx="400" cy="400" r="330" fill="none" stroke="#D4AF5A" stroke-opacity=".5" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="1700 373"/></g>
+        <circle cx="400" cy="400" r="300" fill="none" stroke="#A57CF0" stroke-opacity=".18"/>
+      </svg>
+      <div class="embers" data-embers="28" aria-hidden="true"></div>
+
+      <div class="container hero__content" data-hero-content>
+        <p class="label hero__eyebrow intro intro--1"><span class="rule"></span>残り火 · Uma saga samurai</p>
+        <h1 class="hero__title">
+          <span class="hero__title-top intro intro--1">Last</span>
+          <span class="hero__title-main">Ember</span>
+        </h1>
+        <p class="hero__lede intro intro--3">Na noite em que todas as chamas do império se apagaram, uma samurai saiu das cinzas carregando a última brasa na guarda da espada.</p>
+        <div class="hero__ctas intro intro--4">
+          <a class="btn btn--gold btn--lg" href="#edicoes">Comprar agora<svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          <button class="btn btn--ghost btn--lg btn--icon-left" type="button" data-trailer-open>
+            <span class="btn__play"><svg width="11" height="11" aria-hidden="true"><use href="#i-play"/></svg></span>Ver trailer
+          </button>
+        </div>
+        <ul class="label hero__meta intro intro--5">
+          <li>Lançamento 12.03.2027</li>
+          <li aria-hidden="true" class="hero__meta-sep">/</li>
+          <li>PS5 · Xbox Series X|S · PC</li>
+        </ul>
+      </div>
+
+      <p class="hero__aside intro intro--5" aria-hidden="true">最後の残り火</p>
+      <a class="label scroll-cue" href="#lenda">Role para acender<span class="scroll-cue__line"></span></a>
+    </section>
+
+    <!-- ================= PRÓLOGO ================= -->
+    <section class="section prologue" id="lenda">
+      <div class="container prologue__inner">
+        <p class="prologue__aside" aria-hidden="true">序章 · 灰の夜</p>
+        <p class="label eyebrow reveal">Prólogo — A Noite das Cinzas</p>
+        <div class="saga">
+          <p class="reveal">Por mil anos, a Chama de Amaterasu ardeu no coração de Kyō-no-Hi. Enquanto ela ardia, <span class="u-gold">nenhuma noite era longa demais.</span></p>
+          <p class="saga__quiet reveal">Então veio a Noite das Cinzas. O Regente Kurogane apagou a chama sagrada e partiu suas brasas entre sete generais. As províncias esfriaram. Os mortos pararam de descansar.</p>
+          <p class="reveal">Hotaru, última filha do clã Murasaki, sobreviveu com uma única fagulha presa na guarda de sua espada.</p>
+          <p class="saga__final reveal">Ela não busca vingança.<br>Busca <span class="saga__fire">fogo.</span></p>
+        </div>
+        <ul class="facts reveal">
+          <li class="facts__item"><span class="facts__kanji">一</span><span class="label">Brasa</span></li>
+          <li class="facts__item"><span class="facts__kanji">五</span><span class="label">Províncias</span></li>
+          <li class="facts__item"><span class="facts__kanji facts__kanji--violet">七</span><span class="label">Generais</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================= HOTARU ================= -->
+    <section class="section hotaru" id="hotaru">
+      <div class="container split">
+        <figure class="portrait reveal">
+          <div class="portrait__frame" aria-hidden="true"></div>
+          <div class="portrait__image">
+            <img src="assets/images/hotaru/hotaru-portrait.jpg" alt="Retrato de Hotaru com o mon do clã no ombro e a katana Hinokami na cintura" loading="lazy" decoding="async">
+            <button class="hotspot" type="button" style="--x:31%;--y:11%" aria-label="Detalhe 1: kanzashi da mãe" data-hotspot>
+              <span class="hotspot__dot">1</span><span class="hotspot__tip"><b>Kanzashi da mãe.</b> Dentro do grampo, o nome verdadeiro do clã, gravado em ouro.</span>
+            </button>
+            <button class="hotspot" type="button" style="--x:44%;--y:37%" aria-label="Detalhe 2: o mon Murasaki" data-hotspot>
+              <span class="hotspot__dot">2</span><span class="hotspot__tip"><b>O mon Murasaki.</b> Flor de cinco pétalas de um clã extinto. Quem a reconhece, ou se ajoelha, ou saca.</span>
+            </button>
+            <button class="hotspot" type="button" style="--x:85%;--y:66%" aria-label="Detalhe 3: Hinokami, a katana" data-hotspot>
+              <span class="hotspot__dot">3</span><span class="hotspot__tip hotspot__tip--left"><b>Hinokami.</b> Katana de guarda oca. Dentro dela pulsa a última brasa do império.</span>
+            </button>
+            <button class="hotspot" type="button" style="--x:43%;--y:87%" aria-label="Detalhe 4: kote de cinza" data-hotspot>
+              <span class="hotspot__dot">4</span><span class="hotspot__tip"><b>Kote de cinza.</b> Aço temperado na Noite das Cinzas. Não queima. Não esquece.</span>
+            </button>
+          </div>
+          <figcaption class="label portrait__hint">Passe o cursor nos pontos dourados</figcaption>
+          <ol class="portrait__legend">
+            <li><span class="hotspot__dot">1</span><p><b>Kanzashi da mãe.</b> Guarda o nome verdadeiro do clã.</p></li>
+            <li><span class="hotspot__dot">2</span><p><b>O mon Murasaki.</b> A flor de cinco pétalas de um clã extinto.</p></li>
+            <li><span class="hotspot__dot">3</span><p><b>Hinokami.</b> A katana que abriga a última brasa.</p></li>
+            <li><span class="hotspot__dot">4</span><p><b>Kote de cinza.</b> Aço temperado na Noite das Cinzas.</p></li>
+          </ol>
+        </figure>
+
+        <div class="hotaru__text">
+          <p class="label eyebrow reveal">A protagonista</p>
+          <h2 class="hotaru__name reveal">Hotaru <span>蛍</span></h2>
+          <p class="hotaru__bio reveal">Seu nome significa vaga-lume: a luz que só aparece quando tudo está escuro. Treinada para servir à chama, agora ela é a chama. Cada passo a aproxima de Kurogane e afasta a brasa da vida.</p>
+          <dl class="dossier reveal">
+            <dt class="label">Clã</dt><dd>Murasaki <span class="u-violet u-serif">紫</span>, guardiões da chama sagrada</dd>
+            <dt class="label">Lâmina</dt><dd>Hinokami, a espada que carrega a brasa</dd>
+            <dt class="label">Voz</dt><dd>Akane Mizushima (japonês) · Larissa Prado (português)</dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= A JORNADA ================= -->
+    <section class="section section--deep journey-section" id="jornada">
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="label eyebrow reveal">旅 · A Jornada</p>
+            <h2 class="h2 reveal">Cinco províncias.<br><span class="u-gold">Uma brasa.</span></h2>
+          </div>
+          <p class="lede reveal">A brasa enfraquece a cada província libertada. Proteja-a, alimente-a ou deixe-a morrer, e descubra o que renasce das cinzas.</p>
+        </header>
+
+        <div class="journey" data-journey>
+          <div class="journey__wick" aria-hidden="true"><span class="journey__wick-fill" data-wick></span></div>
+
+          <article class="chapter" data-chapter>
+            <span class="chapter__node" aria-hidden="true"></span>
+            <figure class="media media--16x10 chapter__media reveal" data-media>
+              <img src="assets/images/journey/01-shiroyama.jpg" alt="Castelo de Shiroyama em ruínas sob neve de cinzas" loading="lazy" decoding="async">
+              <div class="media__ph" aria-hidden="true"><span class="media__kanji">灰</span><span class="media__tag"><svg width="14" height="14"><use href="#i-image"/></svg>journey/01-shiroyama.jpg</span></div>
+            </figure>
+            <div class="chapter__body reveal">
+              <p class="chapter__num"><span class="chapter__kanji">一</span><span class="label">Capítulo I · Shiroyama</span></p>
+              <h3 class="chapter__title">A Aldeia em Cinzas</h3>
+              <p class="chapter__text">Hotaru desperta entre os escombros do castelo de seu clã. A neve que cai é cinza. Aqui ela reaprende a empunhar a lâmina e descobre o que restou da chama.</p>
+              <div class="meter"><span class="label">A brasa</span><span class="meter__pips" role="img" aria-label="Brasa em 5 de 5"><i class="pip pip--on"></i><i class="pip pip--on"></i><i class="pip pip--on"></i><i class="pip pip--on"></i><i class="pip pip--on"></i></span><span class="meter__state">Ardente</span></div>
+            </div>
+          </article>
+
+          <article class="chapter chapter--reverse" data-chapter>
+            <span class="chapter__node" aria-hidden="true"></span>
+            <figure class="media media--16x10 chapter__media reveal" data-media>
+              <img src="assets/images/journey/02-takemori.jpg" alt="Floresta de bambu de Takemori envolta em névoa" loading="lazy" decoding="async">
+              <div class="media__ph" aria-hidden="true"><span class="media__kanji">竹</span><span class="media__tag"><svg width="14" height="14"><use href="#i-image"/></svg>journey/02-takemori.jpg</span></div>
+            </figure>
+            <div class="chapter__body reveal">
+              <p class="chapter__num"><span class="chapter__kanji">二</span><span class="label">Capítulo II · Takemori</span></p>
+              <h3 class="chapter__title">A Floresta que Sussurra</h3>
+              <p class="chapter__text">Bambuzais tão densos que a luz não entra. Espíritos sem chama vagam entre os caules, e o primeiro general espera em silêncio absoluto.</p>
+              <div class="meter"><span class="label">A brasa</span><span class="meter__pips" role="img" aria-label="Brasa em 4 de 5"><i class="pip pip--on"></i><i class="pip pip--on"></i><i class="pip pip--on"></i><i class="pip pip--on"></i><i class="pip"></i></span><span class="meter__state">Firme</span></div>
+            </div>
+          </article>
+
+          <article class="chapter" data-chapter>
+            <span class="chapter__node" aria-hidden="true"></span>
+            <figure class="media media--16x10 chapter__media reveal" data-media>
+              <img src="assets/images/journey/03-kuroiwa.jpg" alt="Fortaleza de ferro negro de Kuroiwa sob cerco" loading="lazy" decoding="async">
+              <div class="media__ph" aria-hidden="true"><span class="media__kanji">鉄</span><span class="media__tag"><svg width="14" height="14"><use href="#i-image"/></svg>journey/03-kuroiwa.jpg</span></div>
+            </figure>
+            <div class="chapter__body reveal">
+              <p class="chapter__num"><span class="chapter__kanji">三</span><span class="label">Capítulo III · Kuroiwa</span></p>
+              <h3 class="chapter__title">A Fortaleza de Ferro Negro</h3>
+              <p class="chapter__text">Um castelo forjado em aço e fumaça. Cerco, muralhas em chamas e exércitos inteiros entre Hotaru e o segundo fragmento da chama.</p>
+              <div class="meter"><span class="label">A brasa</span><span class="meter__pips" role="img" aria-label="Brasa em 3 de 5"><i class="pip pip--on"></i><i class="pip pip--on"></i><i class="pip pip--on"></i><i class="pip"></i><i class="pip"></i></span><span class="meter__state">Vacilante</span></div>
+            </div>
+          </article>
+
+          <article class="chapter chapter--reverse" data-chapter>
+            <span class="chapter__node" aria-hidden="true"></span>
+            <figure class="media media--16x10 chapter__media reveal" data-media>
+              <img src="assets/images/journey/04-senkoji.jpg" alt="Templo Senkō-ji com mil lanternas apagadas" loading="lazy" decoding="async">
+              <div class="media__ph" aria-hidden="true"><span class="media__kanji">灯</span><span class="media__tag"><svg width="14" height="14"><use href="#i-image"/></svg>journey/04-senkoji.jpg</span></div>
+            </figure>
+            <div class="chapter__body reveal">
+              <p class="chapter__num"><span class="chapter__kanji">四</span><span class="label">Capítulo IV · Senkō-ji</span></p>
+              <h3 class="chapter__title">O Templo das Mil Lanternas</h3>
+              <p class="chapter__text">Mil lanternas apagadas e uma escolha impossível: alimentar a brasa ou devolver a luz aos vivos. Aqui, a chama quase morre.</p>
+              <div class="meter"><span class="label">A brasa</span><span class="meter__pips" role="img" aria-label="Brasa em 1 de 5"><i class="pip pip--on"></i><i class="pip"></i><i class="pip"></i><i class="pip"></i><i class="pip"></i></span><span class="meter__state">Quase extinta</span></div>
+            </div>
+          </article>
+
+          <article class="chapter chapter--finale" data-chapter>
+            <span class="chapter__node" aria-hidden="true"></span>
+            <figure class="media media--16x10 media--violet chapter__media reveal" data-media>
+              <img src="assets/images/journey/05-hinomine.jpg" alt="Cume de Hi-no-Mine acima das nuvens, iluminado por chamas violeta" loading="lazy" decoding="async">
+              <div class="media__ph" aria-hidden="true"><span class="media__kanji">峰</span><span class="media__tag"><svg width="14" height="14"><use href="#i-image"/></svg>journey/05-hinomine.jpg</span></div>
+            </figure>
+            <div class="chapter__body reveal">
+              <p class="chapter__num"><span class="chapter__kanji">五</span><span class="label">Capítulo V · Hi-no-Mine</span></p>
+              <h3 class="chapter__title">O Cume do Sol Apagado</h3>
+              <p class="chapter__text">O trono de Kurogane, acima das nuvens. Quando a última chama parece perdida, a brasa renasce com outra cor e outra vontade.</p>
+              <div class="meter"><span class="label">A brasa</span><span class="meter__pips" role="img" aria-label="Brasa renascida"><i class="pip pip--violet"></i><i class="pip pip--violet"></i><i class="pip pip--violet"></i><i class="pip pip--violet"></i><i class="pip pip--violet"></i></span><span class="meter__state meter__state--violet">Renascida em violeta</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COMBATE ================= -->
+    <section class="section combat-section" id="combate">
+      <div class="container">
+        <p class="label eyebrow reveal">剣の道 · Combate</p>
+        <h2 class="h2 combat-section__title reveal">O Caminho da Lâmina</h2>
+
+        <div class="combat" data-tabs>
+          <div class="combat__tabs reveal" role="tablist" aria-label="Técnicas de combate">
+            <button class="tech" type="button" role="tab" id="tab-iai" aria-controls="panel-iai" aria-selected="true">
+              <span class="tech__kanji">居合</span><span class="tech__text"><span class="label">Iai</span><span class="tech__name">Um corte, um destino</span></span>
+            </button>
+            <button class="tech" type="button" role="tab" id="tab-zanka" aria-controls="panel-zanka" aria-selected="false" tabindex="-1">
+              <span class="tech__kanji">残火</span><span class="tech__text"><span class="label">Zanka</span><span class="tech__name">A Brasa Viva</span></span>
+            </button>
+            <button class="tech" type="button" role="tab" id="tab-kamae" aria-controls="panel-kamae" aria-selected="false" tabindex="-1">
+              <span class="tech__kanji">構え</span><span class="tech__text"><span class="label">Kamae</span><span class="tech__name">Três Posturas</span></span>
+            </button>
+            <button class="tech" type="button" role="tab" id="tab-kage" aria-controls="panel-kage" aria-selected="false" tabindex="-1">
+              <span class="tech__kanji">影</span><span class="tech__text"><span class="label">Kage</span><span class="tech__name">Caminhar nas Sombras</span></span>
+            </button>
+          </div>
+
+          <div class="combat__stage reveal">
+            <div class="combat__panel" role="tabpanel" id="panel-iai" aria-labelledby="tab-iai" tabindex="0">
+              <figure class="media media--16x9" data-media>
+                <img src="assets/images/combat/iai.jpg" alt="Hotaru saca a katana em um duelo iai sob a chuva" loading="lazy" decoding="async">
+                <div class="media__ph" aria-hidden="true"><span class="media__kanji">居合</span><span class="media__tag"><svg width="14" height="14"><use href="#i-video"/></svg>combat/iai.jpg</span></div>
+              </figure>
+              <p>Duelos de leitura e paciência. Estude a postura do inimigo, segure a respiração e saque no instante exato. A luta acaba antes de começar.</p>
+            </div>
+            <div class="combat__panel" role="tabpanel" id="panel-zanka" aria-labelledby="tab-zanka" tabindex="0" hidden>
+              <figure class="media media--16x9 media--violet" data-media>
+                <img src="assets/images/combat/zanka.jpg" alt="Lâmina envolta em fogo violeta abrindo um arco de chamas" loading="lazy" decoding="async">
+                <div class="media__ph" aria-hidden="true"><span class="media__kanji">残火</span><span class="media__tag"><svg width="14" height="14"><use href="#i-video"/></svg>combat/zanka.jpg</span></div>
+              </figure>
+              <p>Cada golpe perfeito alimenta a brasa na guarda de Hinokami. Libere-a em técnicas de fogo violeta que mudam o campo de batalha, sabendo que cada chama gasta é uma chama a menos para a jornada.</p>
+            </div>
+            <div class="combat__panel" role="tabpanel" id="panel-kamae" aria-labelledby="tab-kamae" tabindex="0" hidden>
+              <figure class="media media--16x9" data-media>
+                <img src="assets/images/combat/kamae.jpg" alt="Hotaru alterna entre três posturas de espada" loading="lazy" decoding="async">
+                <div class="media__ph" aria-hidden="true"><span class="media__kanji">構え</span><span class="media__tag"><svg width="14" height="14"><use href="#i-video"/></svg>combat/kamae.jpg</span></div>
+              </figure>
+              <p>Céu para quebrar guardas. Terra para resistir. Rio para fluir entre inimigos. Alterne posturas no meio do combate e reescreva seu arsenal a cada respiração.</p>
+            </div>
+            <div class="combat__panel" role="tabpanel" id="panel-kage" aria-labelledby="tab-kage" tabindex="0" hidden>
+              <figure class="media media--16x9" data-media>
+                <img src="assets/images/combat/kage.jpg" alt="Silhueta de Hotaru agachada em um telhado na névoa" loading="lazy" decoding="async">
+                <div class="media__ph" aria-hidden="true"><span class="media__kanji">影</span><span class="media__tag"><svg width="14" height="14"><use href="#i-video"/></svg>combat/kage.jpg</span></div>
+              </figure>
+              <p>Telhados, bambuzais e névoa. A brasa denuncia sua posição quando arde forte: apague-a para desaparecer e escolha quando, e para quem, ser vista.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= INTERLÚDIO ================= -->
+    <section class="interlude" aria-label="Juramento de Hotaru" data-parallax-section>
+      <figure class="interlude__media" data-media>
+        <img class="interlude__img" src="assets/images/interlude/juramento.jpg" data-fallback="assets/images/hotaru/hotaru-portrait.jpg" alt="" loading="lazy" decoding="async" data-parallax>
+      </figure>
+      <div class="interlude__shade" aria-hidden="true"></div>
+      <div class="container interlude__inner">
+        <blockquote class="interlude__quote reveal">
+          <p>“Enquanto eu respirar, <span class="u-gold">a chama respira.</span>”</p>
+          <footer class="label"><span class="rule rule--violet"></span>Juramento de Hotaru</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ================= OS SETE GENERAIS ================= -->
+    <section class="section section--deep generals-section" id="generais">
+      <div class="container">
+        <header class="section-head">
+          <div>
+            <p class="label eyebrow reveal">七将 · Os Inimigos</p>
+            <h2 class="h2 reveal">Os Sete Generais de Cinza</h2>
+          </div>
+          <p class="lede reveal">Kurogane partiu a chama sagrada em sete. Cada general carrega um fragmento e foi transformado por ele.</p>
+        </header>
+      </div>
+
+      <div class="generals" tabindex="0" aria-label="Os sete generais (role para o lado)">
+        <article class="general">
+          <figure class="media media--3x4" data-media><img src="assets/images/generals/01-shinobu.jpg" alt="Shinobu, a Lâmina Silenciosa" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">静</span><span class="media__tag">generals/01-shinobu.jpg</span></div></figure>
+          <p class="label general__flame">壱 · Chama do Silêncio</p><h3 class="general__name">Shinobu</h3><p class="general__title">A Lâmina Silenciosa</p>
+        </article>
+        <article class="general">
+          <figure class="media media--3x4" data-media><img src="assets/images/generals/02-okami-goro.jpg" alt="Ōkami Gorō, o Lobo de Ferro" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">餓</span><span class="media__tag">generals/02-okami-goro.jpg</span></div></figure>
+          <p class="label general__flame">弐 · Chama da Fome</p><h3 class="general__name">Ōkami Gorō</h3><p class="general__title">O Lobo de Ferro</p>
+        </article>
+        <article class="general">
+          <figure class="media media--3x4" data-media><img src="assets/images/generals/03-senhora-aoi.jpg" alt="Senhora Aoi, a Viúva das Lanternas" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">灯</span><span class="media__tag">generals/03-senhora-aoi.jpg</span></div></figure>
+          <p class="label general__flame">参 · Chama da Saudade</p><h3 class="general__name">Senhora Aoi</h3><p class="general__title">A Viúva das Lanternas</p>
+        </article>
+        <article class="general">
+          <figure class="media media--3x4" data-media><img src="assets/images/generals/04-tetsuzan.jpg" alt="Tetsuzan, o Martelo da Montanha" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">怒</span><span class="media__tag">generals/04-tetsuzan.jpg</span></div></figure>
+          <p class="label general__flame">肆 · Chama da Ira</p><h3 class="general__name">Tetsuzan</h3><p class="general__title">O Martelo da Montanha</p>
+        </article>
+        <article class="general">
+          <figure class="media media--3x4" data-media><img src="assets/images/generals/05-yurei-maru.jpg" alt="Yūrei-maru, o Barqueiro sem Rosto" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">忘</span><span class="media__tag">generals/05-yurei-maru.jpg</span></div></figure>
+          <p class="label general__flame">伍 · Chama do Esquecimento</p><h3 class="general__name">Yūrei-maru</h3><p class="general__title">O Barqueiro sem Rosto</p>
+        </article>
+        <article class="general">
+          <figure class="media media--3x4" data-media><img src="assets/images/generals/06-kagero.jpg" alt="Kagerō, a Miragem" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">幻</span><span class="media__tag">generals/06-kagero.jpg</span></div></figure>
+          <p class="label general__flame">陸 · Chama da Ilusão</p><h3 class="general__name">Kagerō</h3><p class="general__title">A Miragem</p>
+        </article>
+        <article class="general general--boss">
+          <figure class="media media--3x4 media--violet" data-media><img src="assets/images/generals/07-kurogane.jpg" alt="Kurogane, o Regente de Cinzas" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">灰</span><span class="media__tag">generals/07-kurogane.jpg</span></div></figure>
+          <p class="label general__flame">漆 · A Chama Primeira</p><h3 class="general__name">Kurogane</h3><p class="general__title">O Regente de Cinzas</p>
+        </article>
+      </div>
+      <div class="container">
+        <p class="label generals__hint">Deslize para conhecer todos<svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></p>
+      </div>
+    </section>
+
+    <!-- ================= EDIÇÕES ================= -->
+    <section class="section editions-section" id="edicoes">
+      <div class="container">
+        <header class="section-head section-head--center">
+          <p class="label eyebrow reveal">版 · Edições</p>
+          <h2 class="h2 reveal">Escolha sua lâmina</h2>
+          <p class="lede reveal">PS5, Xbox Series X|S e PC (Steam). Lançamento em 12 de março de 2027. Reserve agora e receba o kimono de luto <em>Cinza Primeira</em>.</p>
+        </header>
+
+        <div class="editions">
+          <article class="edition reveal">
+            <figure class="media media--4x3" data-media><img src="assets/images/editions/padrao.jpg" alt="Capa da Edição Padrão" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">刃</span><span class="media__tag">editions/padrao.jpg</span></div></figure>
+            <div class="edition__body">
+              <h3 class="edition__name">Edição Padrão</h3>
+              <p class="edition__price">R$ 249,90</p>
+              <ul class="edition__list">
+                <li>Last Ember, jogo completo</li>
+                <li>Bônus de pré-venda: kimono de luto <em>Cinza Primeira</em></li>
+              </ul>
+              <button class="btn btn--ghost btn--block" type="button" data-purchase="padrao">Reservar</button>
+            </div>
+          </article>
+
+          <article class="edition edition--featured reveal">
+            <span class="label edition__ribbon">Recomendada</span>
+            <figure class="media media--4x3 media--violet" data-media><img src="assets/images/editions/murasaki.jpg" alt="Arte da Edição Murasaki" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">紫</span><span class="media__tag">editions/murasaki.jpg</span></div></figure>
+            <div class="edition__body">
+              <h3 class="edition__name">Edição Murasaki</h3>
+              <p class="edition__price">R$ 329,90</p>
+              <ul class="edition__list">
+                <li>Last Ember, jogo completo</li>
+                <li>Armadura <em>Lua Violeta</em> para Hotaru</li>
+                <li>Trilha sonora original digital</li>
+                <li>Artbook digital <em>Cinzas e Seda</em></li>
+                <li>Bônus de pré-venda: kimono de luto <em>Cinza Primeira</em></li>
+              </ul>
+              <button class="btn btn--gold btn--block" type="button" data-purchase="murasaki">Reservar</button>
+            </div>
+          </article>
+
+          <article class="edition reveal">
+            <figure class="media media--4x3" data-media><img src="assets/images/editions/colecionador.jpg" alt="Caixa da Edição de Colecionador" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">鍔</span><span class="media__tag">editions/colecionador.jpg</span></div></figure>
+            <div class="edition__body">
+              <h3 class="edition__name">Edição de Colecionador</h3>
+              <p class="edition__price">R$ 899,90</p>
+              <ul class="edition__list">
+                <li>Tudo da Edição Murasaki</li>
+                <li>Réplica da tsuba de Hinokami com luz de brasa</li>
+                <li>Steelbook exclusivo</li>
+                <li>Mapa em tecido das cinco províncias</li>
+              </ul>
+              <button class="btn btn--ghost btn--block" type="button" data-purchase="colecionador">Reservar</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CTA FINAL ================= -->
+    <section class="final-cta" id="comprar">
+      <svg class="final-cta__ring ring" viewBox="0 0 800 800" aria-hidden="true">
+        <g class="ring__a"><circle cx="400" cy="400" r="372" fill="none" stroke="#D4AF5A" stroke-opacity=".35" stroke-dasharray="1 11"/></g>
+        <g class="ring__b"><circle cx="400" cy="400" r="330" fill="none" stroke="#A57CF0" stroke-opacity=".55" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="1700 373"/></g>
+      </svg>
+      <div class="embers" data-embers="22" aria-hidden="true"></div>
+      <div class="container final-cta__inner">
+        <svg class="final-cta__icon reveal" width="40" height="40" aria-hidden="true"><use href="#i-flame"/></svg>
+        <h2 class="final-cta__title reveal">Mantenha a brasa <span class="u-gold">acesa.</span></h2>
+        <p class="lede final-cta__lede reveal">A última chama do império está nas suas mãos.</p>
+        <div class="final-cta__actions reveal">
+          <button class="btn btn--gold btn--lg" type="button" data-purchase="murasaki">Reservar Last Ember<svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <button class="btn btn--ghost btn--lg btn--icon-left" type="button" data-trailer-open>
+            <span class="btn__play"><svg width="11" height="11" aria-hidden="true"><use href="#i-play"/></svg></span>Ver trailer
+          </button>
+        </div>
+        <p class="label final-cta__meta reveal">PS5 · Xbox Series X|S · PC — 12.03.2027</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= RODAPÉ ================= -->
+  <footer class="site-footer">
+    <div class="container site-footer__top">
+      <a class="brand" href="#topo"><svg class="brand__icon" width="20" height="20" aria-hidden="true"><use href="#i-flame"/></svg><span class="brand__name">Last Ember</span></a>
+      <nav aria-label="Rodapé">
+        <ul class="site-footer__nav">
+          <li><a href="#lenda">A Lenda</a></li>
+          <li><a href="#jornada">Jornada</a></li>
+          <li><a href="#combate">Combate</a></li>
+          <li><a href="#edicoes">Edições</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container site-footer__bottom">
+      <p>© 2026 Kuroame Studio. Last Ember é uma obra de ficção. Imprensa: <span class="u-select">imprensa@kuroame.studio</span></p>
+      <p class="site-footer__rating"><span class="rating-badge" aria-hidden="true">16</span>Não recomendado para menores de 16 anos · Violência extrema</p>
+    </div>
+  </footer>
+
+  <!-- ================= MODAL: PRÉ-VENDA ================= -->
+  <dialog class="modal" id="purchase-modal" aria-labelledby="purchase-title" data-purchase-modal>
+    <form class="purchase" novalidate data-purchase-form>
+      <header class="modal__head">
+        <div>
+          <p class="label eyebrow">Pré-venda</p>
+          <h2 class="modal__title" id="purchase-title">Reservar Last Ember</h2>
+        </div>
+        <button class="modal__close" type="button" aria-label="Fechar" data-modal-close><svg width="18" height="18"><use href="#i-close"/></svg></button>
+      </header>
+
+      <div class="purchase__step" data-step="form">
+        <fieldset class="purchase__group">
+          <legend class="label">Edição</legend>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="edition" value="padrao" data-name="Edição Padrão" data-price="249.90" data-delivery="digital"><span class="choice__body"><span class="choice__name">Edição Padrão</span><span class="choice__price">R$ 249,90</span></span></label>
+            <label class="choice"><input type="radio" name="edition" value="murasaki" data-name="Edição Murasaki" data-price="329.90" data-delivery="digital" checked><span class="choice__body"><span class="choice__name">Edição Murasaki</span><span class="choice__price">R$ 329,90</span></span></label>
+            <label class="choice"><input type="radio" name="edition" value="colecionador" data-name="Edição de Colecionador" data-price="899.90" data-delivery="physical"><span class="choice__body"><span class="choice__name">Edição de Colecionador</span><span class="choice__price">R$ 899,90</span></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="purchase__group">
+          <legend class="label">Plataforma</legend>
+          <div class="pills">
+            <label class="pill"><input type="radio" name="platform" value="PS5" checked><span>PS5</span></label>
+            <label class="pill"><input type="radio" name="platform" value="Xbox Series X|S"><span>Xbox Series X|S</span></label>
+            <label class="pill"><input type="radio" name="platform" value="PC (Steam)"><span>PC · Steam</span></label>
+          </div>
+        </fieldset>
+
+        <div class="purchase__summary">
+          <span class="label">Total</span>
+          <strong class="purchase__total" data-total>R$ 329,90</strong>
+        </div>
+        <p class="purchase__note" data-delivery-note>Entrega digital no dia do lançamento, 12.03.2027.</p>
+        <button class="btn btn--gold btn--lg btn--block" type="submit">Confirmar pré-venda</button>
+        <p class="purchase__fine">Site de demonstração: nenhum pagamento é processado.</p>
+      </div>
+
+      <div class="purchase__step purchase__done" data-step="done" hidden>
+        <svg class="purchase__done-icon" width="44" height="44" aria-hidden="true"><use href="#i-flame"/></svg>
+        <h3 class="purchase__done-title" tabindex="-1" data-done-title>Sua brasa está guardada.</h3>
+        <p class="purchase__done-text" data-done-text></p>
+        <p class="label purchase__code">Código <span class="u-select" data-done-code></span></p>
+        <button class="btn btn--ghost btn--block" type="button" data-modal-close>Voltar ao site</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- ================= MODAL: TRAILER ================= -->
+  <dialog class="modal modal--trailer" id="trailer-modal" aria-label="Trailer de Last Ember" data-trailer-modal>
+    <button class="modal__close modal__close--floating" type="button" aria-label="Fechar trailer" data-modal-close><svg width="18" height="18"><use href="#i-close"/></svg></button>
+    <figure class="media media--16x9 trailer" data-trailer>
+      <!-- Coloque o trailer em assets/videos/trailer.mp4 -->
+      <video class="trailer__video" controls playsinline preload="none" poster="assets/images/hotaru/hotaru-portrait.jpg">
+        <source src="assets/videos/trailer.mp4" type="video/mp4">
+      </video>
+      <div class="media__ph trailer__ph" aria-hidden="true">
+        <span class="media__kanji">予告</span>
+        <span class="trailer__soon"><span class="label u-gold">Trailer oficial</span><span class="trailer__soon-title">Estreia em breve</span><span class="media__tag">videos/trailer.mp4</span></span>
+      </div>
+    </figure>
+  </dialog>
+
+  <!-- Scripts: núcleo → módulos → inicialização -->
+  <script src="js/core/app.js" defer></script>
+  <script src="js/core/smooth-scroll.js" defer></script>
+  <script src="js/modules/header.js" defer></script>
+  <script src="js/modules/mobile-nav.js" defer></script>
+  <script src="js/modules/anchors.js" defer></script>
+  <script src="js/modules/media.js" defer></script>
+  <script src="js/modules/embers.js" defer></script>
+  <script src="js/modules/reveal.js" defer></script>
+  <script src="js/modules/scroll-effects.js" defer></script>
+  <script src="js/modules/combat-tabs.js" defer></script>
+  <script src="js/modules/hotspots.js" defer></script>
+  <script src="js/modules/modal.js" defer></script>
+  <script src="js/modules/purchase.js" defer></script>
+  <script src="js/modules/trailer.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

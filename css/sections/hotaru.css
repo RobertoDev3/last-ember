@@ -1,0 +1,109 @@
+.portrait {
+  position: relative;
+  justify-self: center;
+  width: 100%;
+  max-width: 560px;
+}
+
+.portrait__frame {
+  position: absolute;
+  inset: -14px;
+  box-shadow: inset 0 0 0 1px rgba(212, 175, 90, .28);
+  pointer-events: none;
+}
+
+.portrait__image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1122 / 1402;
+}
+.portrait__image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.portrait__hint {
+  margin-top: 26px;
+  color: var(--c-faint);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.portrait__legend {
+  display: none;
+  gap: 14px;
+  margin-top: 32px;
+  font-size: 14px;
+  color: var(--c-fg-soft);
+}
+.portrait__legend li {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+.portrait__legend p { margin: 0; }
+.portrait__legend b { color: var(--c-gold); }
+
+.hotaru__name {
+  display: flex;
+  align-items: flex-end;
+  gap: 22px;
+  margin: 0;
+  font-family: var(--f-display);
+  font-size: clamp(56px, 7.5vw, 112px);
+  font-weight: 800;
+  line-height: .9;
+  color: var(--c-fg-strong);
+}
+.hotaru__name span {
+  font-size: .42em;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--c-violet);
+}
+
+.hotaru__bio {
+  margin: 28px 0 0;
+  max-width: 520px;
+  font-size: var(--fs-lede);
+  color: var(--c-fg-soft);
+}
+
+.dossier {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  max-width: 520px;
+  margin: 44px 0 0;
+  border-bottom: 1px solid var(--c-line);
+}
+.dossier dt {
+  padding: 18px 28px 18px 0;
+  border-top: 1px solid var(--c-line);
+  color: var(--c-faint);
+  font-size: 11px;
+}
+.dossier dd {
+  margin: 0;
+  padding: 16px 0;
+  border-top: 1px solid var(--c-line);
+  color: var(--c-fg);
+}
+
+@media (max-width: 960px), (hover: none) {
+  .portrait__hint { display: none; }
+  .portrait__legend { display: grid; }
+}
+
+@media (max-width: 960px) {
+  .portrait { max-width: 480px; }
+}
+
+@media (max-width: 560px) {
+  .dossier { grid-template-columns: minmax(0, 1fr); }
+  .dossier dt { padding-bottom: 0; }
+  .dossier dd { padding-top: 6px; border-top: 0; }
+}

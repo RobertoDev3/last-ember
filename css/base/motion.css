@@ -1,0 +1,39 @@
+/* Animações compartilhadas */
+
+/* Entrada do hero ao carregar a página */
+.intro { animation: rise 1.4s var(--ease-out) both; }
+.intro--1 { animation-delay: .15s; }
+.intro--3 { animation-delay: .55s; }
+.intro--4 { animation-delay: .75s; }
+.intro--5 { animation-delay: 1s; }
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(28px); filter: blur(6px); }
+  to   { opacity: 1; transform: none; filter: none; }
+}
+
+/* Revelação ao rolar (ativada pelo js/modules/reveal.js; sem JS o conteúdo fica visível) */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 1s var(--ease-out), transform 1s var(--ease-out);
+  transition-delay: var(--reveal-delay, 0s);
+}
+.js .reveal.is-visible { opacity: 1; transform: none; }
+
+/* Anéis decorativos */
+.ring { position: absolute; pointer-events: none; }
+.ring__a { animation: spin 140s linear infinite; transform-origin: 50% 50%; }
+.ring__b { animation: spin 90s linear infinite reverse; transform-origin: 50% 50%; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .js .reveal { opacity: 1; transform: none; }
+}

@@ -1,0 +1,57 @@
+.generals-section .section-head { margin-bottom: 48px; }
+
+/* Faixa horizontal com snap; alinhada à margem do container */
+.generals {
+  --edge: max(var(--gutter), calc((100% - var(--container)) / 2 + var(--gutter)));
+  display: flex;
+  gap: 20px;
+  padding: 12px var(--edge) 32px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--edge);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 90, .35) transparent;
+  overscroll-behavior-x: contain;
+}
+.generals::-webkit-scrollbar { height: 6px; }
+.generals::-webkit-scrollbar-thumb { background: rgba(212, 175, 90, .35); }
+
+.general {
+  flex: 0 0 270px;
+  scroll-snap-align: start;
+  transition: transform .5s var(--ease-out);
+}
+.general:hover { transform: translateY(-8px); }
+.general:hover .media__kanji { color: rgba(212, 175, 90, .14); }
+
+.general__flame { margin: 20px 0 6px; color: var(--c-gold); font-size: 11px; }
+.general__name {
+  margin: 0;
+  font-family: var(--f-display);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--c-fg-strong);
+}
+.general__title { margin: 4px 0 0; color: var(--c-faint); font-size: 15px; }
+
+.general--boss { flex-basis: 300px; }
+.general--boss .media {
+  background-color: #120C1A;
+  box-shadow: inset 0 0 0 1px rgba(165, 124, 240, .5), 0 0 60px rgba(165, 124, 240, .12);
+}
+.general--boss .general__flame { color: var(--c-violet); }
+.general--boss .general__name { font-size: 28px; font-weight: 800; }
+
+.generals__hint {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0 0;
+  color: var(--c-dim);
+  font-size: 10px;
+}
+
+@media (max-width: 560px) {
+  .general { flex-basis: 74%; }
+  .general--boss { flex-basis: 80%; }
+}

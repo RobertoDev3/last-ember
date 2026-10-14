@@ -1,0 +1,17 @@
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+
+# Dependências e ferramentas
+node_modules/
+.vercel/
+
+# Arquivos de trabalho que não fazem parte do site
+*.psd
+*.zip
+*.log

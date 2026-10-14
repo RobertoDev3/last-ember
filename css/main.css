@@ -1,0 +1,31 @@
+/* ==========================================================================
+   Last Ember — folha de estilos principal
+   Ordem: base → layout → componentes → seções
+   ========================================================================== */
+
+@import url("base/tokens.css");
+@import url("base/reset.css");
+@import url("base/typography.css");
+@import url("base/utilities.css");
+@import url("base/motion.css");
+
+@import url("layout/container.css");
+@import url("layout/header.css");
+@import url("layout/mobile-nav.css");
+@import url("layout/footer.css");
+
+@import url("components/buttons.css");
+@import url("components/media.css");
+@import url("components/embers.css");
+@import url("components/hotspots.css");
+@import url("components/modal.css");
+
+@import url("sections/hero.css");
+@import url("sections/prologue.css");
+@import url("sections/hotaru.css");
+@import url("sections/journey.css");
+@import url("sections/combat.css");
+@import url("sections/interlude.css");
+@import url("sections/generals.css");
+@import url("sections/editions.css");
+@import url("sections/final-cta.css");

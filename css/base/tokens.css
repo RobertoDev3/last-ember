@@ -1,0 +1,63 @@
+/* Design tokens — paleta, tipografia, espaçamento e movimento.
+   O site é escuro por definição: ouro como acento principal, violeta como acento narrativo
+   (a brasa renascida). */
+
+:root {
+  /* Superfícies */
+  --c-void: #070608;
+  --c-bg: #0B0A0C;
+  --c-bg-deep: #09080A;
+  --c-surface: #131016;
+  --c-card: #111013;
+  --c-card-featured: #141017;
+
+  /* Texto */
+  --c-fg: #E9E1D3;
+  --c-fg-strong: #F3EBDD;
+  --c-fg-soft: #CFC6B8;
+  --c-muted: #A69C8F;
+  --c-faint: #8E8478;
+  --c-dim: #6F665C;
+
+  /* Acentos */
+  --c-gold: #D4AF5A;
+  --c-gold-hi: #E9C978;
+  --c-on-gold: #140F07;
+  --c-violet: #A57CF0;
+  --c-violet-deep: #4B2A7A;
+
+  /* Linhas */
+  --c-line: rgba(212, 175, 90, .16);
+  --c-line-soft: rgba(212, 175, 90, .09);
+  --c-line-strong: rgba(212, 175, 90, .45);
+
+  /* Tipografia */
+  --f-display: "Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+  --f-body: "Zen Kaku Gothic New", "Hiragino Sans", "Yu Gothic", "Segoe UI", system-ui, sans-serif;
+
+  --fs-label: 12px;
+  --fs-body: 16px;
+  --fs-lede: 18px;
+  --fs-h3: clamp(28px, 3vw, 42px);
+  --fs-h2: clamp(40px, 6vw, 84px);
+
+  /* Layout */
+  --container: 1240px;
+  --gutter: clamp(20px, 5vw, 64px);
+  --header-h: 76px;
+  --section-pad: clamp(88px, 11vw, 160px);
+
+  /* Movimento */
+  --ease-out: cubic-bezier(.2, .7, .2, 1);
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+
+  /* Camadas */
+  --z-header: 50;
+  --z-mobile-nav: 40;
+
+  color-scheme: dark;
+}
+
+@media (max-width: 960px) {
+  :root { --header-h: 68px; }
+}
