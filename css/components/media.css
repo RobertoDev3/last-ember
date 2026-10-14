@@ -1,7 +1,7 @@
 /* Espaços de mídia.
    Cada .media aponta para um arquivo em assets/images (ou assets/videos). Enquanto o arquivo
-   não existir, aparece o placeholder com o nome esperado; quando o arquivo for adicionado,
-   js/modules/media.js marca .is-loaded e a imagem entra com fade. */
+   não existir, aparece só o fundo decorativo (textura, cantoneiras e kanji); quando o arquivo
+   for adicionado, js/modules/media.js marca .is-loaded e a imagem entra com fade. */
 
 .media {
   position: relative;
@@ -68,25 +68,6 @@
   white-space: nowrap;
   user-select: none;
   transition: color .6s;
-}
-
-.media__tag {
-  position: relative;
-  z-index: 2;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  max-width: calc(100% - 32px);
-  padding: 10px 14px;
-  background: rgba(11, 10, 12, .72);
-  box-shadow: inset 0 0 0 1px rgba(212, 175, 90, .2);
-  color: #BDB2A2;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .12em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 /* Brilho violeta vindo de baixo */

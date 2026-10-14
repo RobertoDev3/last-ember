@@ -19,7 +19,8 @@ Por mil anos, a Chama de Amaterasu iluminou o império. Na Noite das Cinzas, o R
 - **Cabeçalho inteligente:** transparente no topo, ganha fundo ao rolar, se recolhe ao descer e volta ao subir.
 - **Jornada em cinco capítulos** com um pavio que queima conforme a rolagem e acende cada capítulo.
 - **Retrato interativo** da protagonista com pontos de detalhe (hotspots).
-- **Abas de combate** navegáveis por teclado.
+- **Combate preso na tela:** ao rolar, a seção para e passa pelas quatro técnicas, uma a uma; depois da última, a página volta a descer. As abas também funcionam no clique e no teclado.
+- **Generais em faixa horizontal:** ao rolar, a seção para e os sete generais deslizam para o lado, com contador, barra de progresso e o kanji do general em destaque ao fundo.
 - **Pré-venda:** "Comprar agora" leva às edições; "Reservar" abre um modal com escolha de edição e plataforma, sem rolar a página. É uma demonstração e não processa pagamento.
 - **Trailer:** modal com o vídeo, ou um aviso de "Estreia em breve" enquanto o arquivo não existe.
 - **Responsivo:** abaixo de 960 px, menu em tela cheia que fecha com Esc e mantém o foco dentro dele.
@@ -34,6 +35,8 @@ Por mil anos, a Chama de Amaterasu iluminou o império. Na Noite das Cinzas, o R
 | Scripts | JavaScript puro, organizado em módulos registrados num namespace global |
 | Fontes | Shippori Mincho B1 e Zen Kaku Gothic New (Google Fonts) |
 | Imagens | Geradas com IA (GPT Image) a partir de um retrato de referência da protagonista |
+
+As seções presas usam `position: sticky` e deixam de prender quando o usuário pede menos movimento (`prefers-reduced-motion`) ou a tela tem menos de 560 px de altura: aí o combate vira abas comuns e os generais, uma faixa com rolagem lateral.
 
 Os scripts são clássicos, não ES modules, para o site funcionar também ao abrir o `index.html` direto do disco (`file://`).
 
@@ -63,7 +66,7 @@ last-ember/
 ├── js/
 │   ├── core/app.js            Namespace LE, utilitários e registro de módulos
 │   ├── core/smooth-scroll.js  Rolagem suave com inércia
-│   ├── modules/               Um arquivo por comportamento
+│   ├── modules/               Um arquivo por comportamento (combate e generais incluem a rolagem presa)
 │   └── main.js                Inicialização
 └── assets/
     ├── icons/favicon.svg
@@ -75,7 +78,7 @@ Cada módulo JavaScript se registra com `LE.register('nome', { init })` e é ini
 
 ## Imagens e vídeos
 
-Para trocar uma imagem, salve o novo arquivo com **o mesmo nome** na mesma pasta. Se um arquivo não existir, o espaço mostra um placeholder com o nome esperado.
+Para trocar uma imagem, salve o novo arquivo com **o mesmo nome** na mesma pasta. Se um arquivo não existir, o espaço mostra só o fundo decorativo (textura, cantoneiras e kanji).
 
 | Pasta | Arquivos | Proporção |
 |---|---|---|
@@ -106,6 +109,7 @@ Para trocar uma imagem de combate por vídeo, substitua o `<img>` do painel em `
 | Suavidade da rolagem | `js/main.js` → `lerp` (menor = mais suave) e `wheelMultiplier` (distância por giro) |
 | Quantidade de brasas | Atributo `data-embers` no hero e no CTA final |
 | Edições e preços | `index.html`, seção `#edicoes` e modal `#purchase-modal` |
+| Quanto rolar por técnica de combate | `css/sections/combat.css` → `.combat-scroll.is-pinned` (`70vh` por técnica) |
 
 ## Deploy
 

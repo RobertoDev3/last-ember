@@ -217,7 +217,7 @@
             <span class="chapter__node" aria-hidden="true"></span>
             <figure class="media media--16x10 chapter__media reveal" data-media>
               <img src="assets/images/journey/01-shiroyama.jpg" alt="Castelo de Shiroyama em ruínas sob neve de cinzas" loading="lazy" decoding="async">
-              <div class="media__ph" aria-hidden="true"><span class="media__kanji">灰</span><span class="media__tag"><svg width="14" height="14"><use href="#i-image"/></svg>journey/01-shiroyama.jpg</span></div>
+              <div class="media__ph" aria-hidden="true"><span class="media__kanji">灰</span></div>
             </figure>
             <div class="chapter__body reveal">
               <p class="chapter__num"><span class="chapter__kanji">一</span><span class="label">Capítulo I · Shiroyama</span></p>
@@ -231,7 +231,7 @@
             <span class="chapter__node" aria-hidden="true"></span>
             <figure class="media media--16x10 chapter__media reveal" data-media>
               <img src="assets/images/journey/02-takemori.jpg" alt="Floresta de bambu de Takemori envolta em névoa" loading="lazy" decoding="async">
-              <div class="media__ph" aria-hidden="true"><span class="media__kanji">竹</span><span class="media__tag"><svg width="14" height="14"><use href="#i-image"/></svg>journey/02-takemori.jpg</span></div>
+              <div class="media__ph" aria-hidden="true"><span class="media__kanji">竹</span></div>
             </figure>
             <div class="chapter__body reveal">
               <p class="chapter__num"><span class="chapter__kanji">二</span><span class="label">Capítulo II · Takemori</span></p>
@@ -245,7 +245,7 @@
             <span class="chapter__node" aria-hidden="true"></span>
             <figure class="media media--16x10 chapter__media reveal" data-media>
               <img src="assets/images/journey/03-kuroiwa.jpg" alt="Fortaleza de ferro negro de Kuroiwa sob cerco" loading="lazy" decoding="async">
-              <div class="media__ph" aria-hidden="true"><span class="media__kanji">鉄</span><span class="media__tag"><svg width="14" height="14"><use href="#i-image"/></svg>journey/03-kuroiwa.jpg</span></div>
+              <div class="media__ph" aria-hidden="true"><span class="media__kanji">鉄</span></div>
             </figure>
             <div class="chapter__body reveal">
               <p class="chapter__num"><span class="chapter__kanji">三</span><span class="label">Capítulo III · Kuroiwa</span></p>
@@ -259,7 +259,7 @@
             <span class="chapter__node" aria-hidden="true"></span>
             <figure class="media media--16x10 chapter__media reveal" data-media>
               <img src="assets/images/journey/04-senkoji.jpg" alt="Templo Senkō-ji com mil lanternas apagadas" loading="lazy" decoding="async">
-              <div class="media__ph" aria-hidden="true"><span class="media__kanji">灯</span><span class="media__tag"><svg width="14" height="14"><use href="#i-image"/></svg>journey/04-senkoji.jpg</span></div>
+              <div class="media__ph" aria-hidden="true"><span class="media__kanji">灯</span></div>
             </figure>
             <div class="chapter__body reveal">
               <p class="chapter__num"><span class="chapter__kanji">四</span><span class="label">Capítulo IV · Senkō-ji</span></p>
@@ -273,7 +273,7 @@
             <span class="chapter__node" aria-hidden="true"></span>
             <figure class="media media--16x10 media--violet chapter__media reveal" data-media>
               <img src="assets/images/journey/05-hinomine.jpg" alt="Cume de Hi-no-Mine acima das nuvens, iluminado por chamas violeta" loading="lazy" decoding="async">
-              <div class="media__ph" aria-hidden="true"><span class="media__kanji">峰</span><span class="media__tag"><svg width="14" height="14"><use href="#i-image"/></svg>journey/05-hinomine.jpg</span></div>
+              <div class="media__ph" aria-hidden="true"><span class="media__kanji">峰</span></div>
             </figure>
             <div class="chapter__body reveal">
               <p class="chapter__num"><span class="chapter__kanji">五</span><span class="label">Capítulo V · Hi-no-Mine</span></p>
@@ -286,56 +286,64 @@
       </div>
     </section>
 
-    <!-- ================= COMBATE ================= -->
+    <!-- ================= COMBATE =================
+         Ao rolar, a seção fica presa na tela e passa pelas quatro técnicas.
+         Depois da última, a página volta a descer (js/modules/combat-tabs.js). -->
     <section class="section combat-section" id="combate">
-      <div class="container">
-        <p class="label eyebrow reveal">剣の道 · Combate</p>
-        <h2 class="h2 combat-section__title reveal">O Caminho da Lâmina</h2>
+      <div class="combat-scroll" data-combat-scroll>
+        <div class="combat-pin">
+          <div class="container">
+            <div class="combat" data-tabs>
+              <div class="combat__side">
+                <p class="label eyebrow reveal">剣の道 · Combate</p>
+                <h2 class="h2 combat-section__title reveal">O Caminho da Lâmina</h2>
+                <div class="combat__tabs reveal" role="tablist" aria-label="Técnicas de combate">
+                  <button class="tech" type="button" role="tab" id="tab-iai" aria-controls="panel-iai" aria-selected="true">
+                    <span class="tech__kanji">居合</span><span class="tech__text"><span class="label">Iai</span><span class="tech__name">Um corte, um destino</span></span>
+                  </button>
+                  <button class="tech" type="button" role="tab" id="tab-zanka" aria-controls="panel-zanka" aria-selected="false" tabindex="-1">
+                    <span class="tech__kanji">残火</span><span class="tech__text"><span class="label">Zanka</span><span class="tech__name">A Brasa Viva</span></span>
+                  </button>
+                  <button class="tech" type="button" role="tab" id="tab-kamae" aria-controls="panel-kamae" aria-selected="false" tabindex="-1">
+                    <span class="tech__kanji">構え</span><span class="tech__text"><span class="label">Kamae</span><span class="tech__name">Três Posturas</span></span>
+                  </button>
+                  <button class="tech" type="button" role="tab" id="tab-kage" aria-controls="panel-kage" aria-selected="false" tabindex="-1">
+                    <span class="tech__kanji">影</span><span class="tech__text"><span class="label">Kage</span><span class="tech__name">Caminhar nas Sombras</span></span>
+                  </button>
+                </div>
+                <p class="label combat__hint" aria-hidden="true"><span class="combat__hint-line"></span>Role para trocar de técnica</p>
+              </div>
 
-        <div class="combat" data-tabs>
-          <div class="combat__tabs reveal" role="tablist" aria-label="Técnicas de combate">
-            <button class="tech" type="button" role="tab" id="tab-iai" aria-controls="panel-iai" aria-selected="true">
-              <span class="tech__kanji">居合</span><span class="tech__text"><span class="label">Iai</span><span class="tech__name">Um corte, um destino</span></span>
-            </button>
-            <button class="tech" type="button" role="tab" id="tab-zanka" aria-controls="panel-zanka" aria-selected="false" tabindex="-1">
-              <span class="tech__kanji">残火</span><span class="tech__text"><span class="label">Zanka</span><span class="tech__name">A Brasa Viva</span></span>
-            </button>
-            <button class="tech" type="button" role="tab" id="tab-kamae" aria-controls="panel-kamae" aria-selected="false" tabindex="-1">
-              <span class="tech__kanji">構え</span><span class="tech__text"><span class="label">Kamae</span><span class="tech__name">Três Posturas</span></span>
-            </button>
-            <button class="tech" type="button" role="tab" id="tab-kage" aria-controls="panel-kage" aria-selected="false" tabindex="-1">
-              <span class="tech__kanji">影</span><span class="tech__text"><span class="label">Kage</span><span class="tech__name">Caminhar nas Sombras</span></span>
-            </button>
-          </div>
-
-          <div class="combat__stage reveal">
-            <div class="combat__panel" role="tabpanel" id="panel-iai" aria-labelledby="tab-iai" tabindex="0">
-              <figure class="media media--16x9" data-media>
-                <img src="assets/images/combat/iai.jpg" alt="Hotaru saca a katana em um duelo iai sob a chuva" loading="lazy" decoding="async">
-                <div class="media__ph" aria-hidden="true"><span class="media__kanji">居合</span><span class="media__tag"><svg width="14" height="14"><use href="#i-video"/></svg>combat/iai.jpg</span></div>
-              </figure>
-              <p>Duelos de leitura e paciência. Estude a postura do inimigo, segure a respiração e saque no instante exato. A luta acaba antes de começar.</p>
-            </div>
-            <div class="combat__panel" role="tabpanel" id="panel-zanka" aria-labelledby="tab-zanka" tabindex="0" hidden>
-              <figure class="media media--16x9 media--violet" data-media>
-                <img src="assets/images/combat/zanka.jpg" alt="Lâmina envolta em fogo violeta abrindo um arco de chamas" loading="lazy" decoding="async">
-                <div class="media__ph" aria-hidden="true"><span class="media__kanji">残火</span><span class="media__tag"><svg width="14" height="14"><use href="#i-video"/></svg>combat/zanka.jpg</span></div>
-              </figure>
-              <p>Cada golpe perfeito alimenta a brasa na guarda de Hinokami. Libere-a em técnicas de fogo violeta que mudam o campo de batalha, sabendo que cada chama gasta é uma chama a menos para a jornada.</p>
-            </div>
-            <div class="combat__panel" role="tabpanel" id="panel-kamae" aria-labelledby="tab-kamae" tabindex="0" hidden>
-              <figure class="media media--16x9" data-media>
-                <img src="assets/images/combat/kamae.jpg" alt="Hotaru alterna entre três posturas de espada" loading="lazy" decoding="async">
-                <div class="media__ph" aria-hidden="true"><span class="media__kanji">構え</span><span class="media__tag"><svg width="14" height="14"><use href="#i-video"/></svg>combat/kamae.jpg</span></div>
-              </figure>
-              <p>Céu para quebrar guardas. Terra para resistir. Rio para fluir entre inimigos. Alterne posturas no meio do combate e reescreva seu arsenal a cada respiração.</p>
-            </div>
-            <div class="combat__panel" role="tabpanel" id="panel-kage" aria-labelledby="tab-kage" tabindex="0" hidden>
-              <figure class="media media--16x9" data-media>
-                <img src="assets/images/combat/kage.jpg" alt="Silhueta de Hotaru agachada em um telhado na névoa" loading="lazy" decoding="async">
-                <div class="media__ph" aria-hidden="true"><span class="media__kanji">影</span><span class="media__tag"><svg width="14" height="14"><use href="#i-video"/></svg>combat/kage.jpg</span></div>
-              </figure>
-              <p>Telhados, bambuzais e névoa. A brasa denuncia sua posição quando arde forte: apague-a para desaparecer e escolha quando, e para quem, ser vista.</p>
+              <div class="combat__stage reveal">
+                <div class="combat__panel" role="tabpanel" id="panel-iai" aria-labelledby="tab-iai" tabindex="0">
+                  <figure class="media media--16x9" data-media>
+                    <img src="assets/images/combat/iai.jpg" alt="Hotaru saca a katana em um duelo iai sob a chuva" loading="lazy" decoding="async">
+                    <div class="media__ph" aria-hidden="true"><span class="media__kanji">居合</span></div>
+                  </figure>
+                  <p>Duelos de leitura e paciência. Estude a postura do inimigo, segure a respiração e saque no instante exato. A luta acaba antes de começar.</p>
+                </div>
+                <div class="combat__panel" role="tabpanel" id="panel-zanka" aria-labelledby="tab-zanka" tabindex="0" hidden>
+                  <figure class="media media--16x9 media--violet" data-media>
+                    <img src="assets/images/combat/zanka.jpg" alt="Lâmina envolta em fogo violeta abrindo um arco de chamas" loading="lazy" decoding="async">
+                    <div class="media__ph" aria-hidden="true"><span class="media__kanji">残火</span></div>
+                  </figure>
+                  <p>Cada golpe perfeito alimenta a brasa na guarda de Hinokami. Libere-a em técnicas de fogo violeta que mudam o campo de batalha, sabendo que cada chama gasta é uma chama a menos para a jornada.</p>
+                </div>
+                <div class="combat__panel" role="tabpanel" id="panel-kamae" aria-labelledby="tab-kamae" tabindex="0" hidden>
+                  <figure class="media media--16x9" data-media>
+                    <img src="assets/images/combat/kamae.jpg" alt="Hotaru alterna entre três posturas de espada" loading="lazy" decoding="async">
+                    <div class="media__ph" aria-hidden="true"><span class="media__kanji">構え</span></div>
+                  </figure>
+                  <p>Céu para quebrar guardas. Terra para resistir. Rio para fluir entre inimigos. Alterne posturas no meio do combate e reescreva seu arsenal a cada respiração.</p>
+                </div>
+                <div class="combat__panel" role="tabpanel" id="panel-kage" aria-labelledby="tab-kage" tabindex="0" hidden>
+                  <figure class="media media--16x9" data-media>
+                    <img src="assets/images/combat/kage.jpg" alt="Silhueta de Hotaru agachada em um telhado na névoa" loading="lazy" decoding="async">
+                    <div class="media__ph" aria-hidden="true"><span class="media__kanji">影</span></div>
+                  </figure>
+                  <p>Telhados, bambuzais e névoa. A brasa denuncia sua posição quando arde forte: apague-a para desaparecer e escolha quando, e para quem, ser vista.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -356,50 +364,113 @@
       </div>
     </section>
 
-    <!-- ================= OS SETE GENERAIS ================= -->
+    <!-- ================= OS SETE GENERAIS =================
+         Ao rolar, a seção fica presa na tela e os generais deslizam para o lado.
+         Depois do último, a página volta a descer (js/modules/generals.js). -->
     <section class="section section--deep generals-section" id="generais">
-      <div class="container">
-        <header class="section-head">
-          <div>
-            <p class="label eyebrow reveal">七将 · Os Inimigos</p>
-            <h2 class="h2 reveal">Os Sete Generais de Cinza</h2>
-          </div>
-          <p class="lede reveal">Kurogane partiu a chama sagrada em sete. Cada general carrega um fragmento e foi transformado por ele.</p>
-        </header>
-      </div>
+      <div class="generals-scroll" data-generals-scroll>
+        <div class="generals-pin">
+          <span class="generals__bg-kanji" data-generals-kanji aria-hidden="true">静</span>
 
-      <div class="generals" tabindex="0" aria-label="Os sete generais (role para o lado)">
-        <article class="general">
-          <figure class="media media--3x4" data-media><img src="assets/images/generals/01-shinobu.jpg" alt="Shinobu, a Lâmina Silenciosa" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">静</span><span class="media__tag">generals/01-shinobu.jpg</span></div></figure>
-          <p class="label general__flame">壱 · Chama do Silêncio</p><h3 class="general__name">Shinobu</h3><p class="general__title">A Lâmina Silenciosa</p>
-        </article>
-        <article class="general">
-          <figure class="media media--3x4" data-media><img src="assets/images/generals/02-okami-goro.jpg" alt="Ōkami Gorō, o Lobo de Ferro" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">餓</span><span class="media__tag">generals/02-okami-goro.jpg</span></div></figure>
-          <p class="label general__flame">弐 · Chama da Fome</p><h3 class="general__name">Ōkami Gorō</h3><p class="general__title">O Lobo de Ferro</p>
-        </article>
-        <article class="general">
-          <figure class="media media--3x4" data-media><img src="assets/images/generals/03-senhora-aoi.jpg" alt="Senhora Aoi, a Viúva das Lanternas" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">灯</span><span class="media__tag">generals/03-senhora-aoi.jpg</span></div></figure>
-          <p class="label general__flame">参 · Chama da Saudade</p><h3 class="general__name">Senhora Aoi</h3><p class="general__title">A Viúva das Lanternas</p>
-        </article>
-        <article class="general">
-          <figure class="media media--3x4" data-media><img src="assets/images/generals/04-tetsuzan.jpg" alt="Tetsuzan, o Martelo da Montanha" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">怒</span><span class="media__tag">generals/04-tetsuzan.jpg</span></div></figure>
-          <p class="label general__flame">肆 · Chama da Ira</p><h3 class="general__name">Tetsuzan</h3><p class="general__title">O Martelo da Montanha</p>
-        </article>
-        <article class="general">
-          <figure class="media media--3x4" data-media><img src="assets/images/generals/05-yurei-maru.jpg" alt="Yūrei-maru, o Barqueiro sem Rosto" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">忘</span><span class="media__tag">generals/05-yurei-maru.jpg</span></div></figure>
-          <p class="label general__flame">伍 · Chama do Esquecimento</p><h3 class="general__name">Yūrei-maru</h3><p class="general__title">O Barqueiro sem Rosto</p>
-        </article>
-        <article class="general">
-          <figure class="media media--3x4" data-media><img src="assets/images/generals/06-kagero.jpg" alt="Kagerō, a Miragem" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">幻</span><span class="media__tag">generals/06-kagero.jpg</span></div></figure>
-          <p class="label general__flame">陸 · Chama da Ilusão</p><h3 class="general__name">Kagerō</h3><p class="general__title">A Miragem</p>
-        </article>
-        <article class="general general--boss">
-          <figure class="media media--3x4 media--violet" data-media><img src="assets/images/generals/07-kurogane.jpg" alt="Kurogane, o Regente de Cinzas" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">灰</span><span class="media__tag">generals/07-kurogane.jpg</span></div></figure>
-          <p class="label general__flame">漆 · A Chama Primeira</p><h3 class="general__name">Kurogane</h3><p class="general__title">O Regente de Cinzas</p>
-        </article>
-      </div>
-      <div class="container">
-        <p class="label generals__hint">Deslize para conhecer todos<svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></p>
+          <div class="generals-intro">
+            <p class="label eyebrow reveal">七将 · Os Inimigos</p>
+            <h2 class="h2 generals-intro__title reveal">Os Sete Generais de Cinza</h2>
+            <p class="lede generals-intro__lede reveal">Kurogane partiu a chama sagrada em sete. Cada general carrega um fragmento e foi transformado por ele.</p>
+            <div class="generals-progress reveal" aria-hidden="true">
+              <span class="generals-progress__count"><b data-generals-count>01</b> / 07</span>
+              <span class="generals-progress__bar"><span class="generals-progress__fill" data-generals-bar></span></span>
+            </div>
+          </div>
+
+          <div class="generals" data-generals-track tabindex="0" aria-label="Os sete generais">
+          <article class="general" data-general data-kanji="静">
+            <figure class="media media--3x4" data-media>
+              <img src="assets/images/generals/01-shinobu.jpg" alt="Shinobu, a Lâmina Silenciosa" loading="lazy" decoding="async">
+              <div class="media__ph" aria-hidden="true"><span class="media__kanji">静</span></div>
+            </figure>
+            <span class="general__index" aria-hidden="true">01</span>
+            <div class="general__info">
+              <p class="label general__flame">壱 · Chama do Silêncio</p>
+              <h3 class="general__name">Shinobu</h3>
+              <p class="general__title">A Lâmina Silenciosa</p>
+            </div>
+          </article>
+          <article class="general" data-general data-kanji="餓">
+            <figure class="media media--3x4" data-media>
+              <img src="assets/images/generals/02-okami-goro.jpg" alt="Ōkami Gorō, o Lobo de Ferro" loading="lazy" decoding="async">
+              <div class="media__ph" aria-hidden="true"><span class="media__kanji">餓</span></div>
+            </figure>
+            <span class="general__index" aria-hidden="true">02</span>
+            <div class="general__info">
+              <p class="label general__flame">弐 · Chama da Fome</p>
+              <h3 class="general__name">Ōkami Gorō</h3>
+              <p class="general__title">O Lobo de Ferro</p>
+            </div>
+          </article>
+          <article class="general" data-general data-kanji="灯">
+            <figure class="media media--3x4" data-media>
+              <img src="assets/images/generals/03-senhora-aoi.jpg" alt="Senhora Aoi, a Viúva das Lanternas" loading="lazy" decoding="async">
+              <div class="media__ph" aria-hidden="true"><span class="media__kanji">灯</span></div>
+            </figure>
+            <span class="general__index" aria-hidden="true">03</span>
+            <div class="general__info">
+              <p class="label general__flame">参 · Chama da Saudade</p>
+              <h3 class="general__name">Senhora Aoi</h3>
+              <p class="general__title">A Viúva das Lanternas</p>
+            </div>
+          </article>
+          <article class="general" data-general data-kanji="怒">
+            <figure class="media media--3x4" data-media>
+              <img src="assets/images/generals/04-tetsuzan.jpg" alt="Tetsuzan, o Martelo da Montanha" loading="lazy" decoding="async">
+              <div class="media__ph" aria-hidden="true"><span class="media__kanji">怒</span></div>
+            </figure>
+            <span class="general__index" aria-hidden="true">04</span>
+            <div class="general__info">
+              <p class="label general__flame">肆 · Chama da Ira</p>
+              <h3 class="general__name">Tetsuzan</h3>
+              <p class="general__title">O Martelo da Montanha</p>
+            </div>
+          </article>
+          <article class="general" data-general data-kanji="忘">
+            <figure class="media media--3x4" data-media>
+              <img src="assets/images/generals/05-yurei-maru.jpg" alt="Yūrei-maru, o Barqueiro sem Rosto" loading="lazy" decoding="async">
+              <div class="media__ph" aria-hidden="true"><span class="media__kanji">忘</span></div>
+            </figure>
+            <span class="general__index" aria-hidden="true">05</span>
+            <div class="general__info">
+              <p class="label general__flame">伍 · Chama do Esquecimento</p>
+              <h3 class="general__name">Yūrei-maru</h3>
+              <p class="general__title">O Barqueiro sem Rosto</p>
+            </div>
+          </article>
+          <article class="general" data-general data-kanji="幻">
+            <figure class="media media--3x4" data-media>
+              <img src="assets/images/generals/06-kagero.jpg" alt="Kagerō, a Miragem" loading="lazy" decoding="async">
+              <div class="media__ph" aria-hidden="true"><span class="media__kanji">幻</span></div>
+            </figure>
+            <span class="general__index" aria-hidden="true">06</span>
+            <div class="general__info">
+              <p class="label general__flame">陸 · Chama da Ilusão</p>
+              <h3 class="general__name">Kagerō</h3>
+              <p class="general__title">A Miragem</p>
+            </div>
+          </article>
+          <article class="general general--boss" data-general data-kanji="灰">
+            <figure class="media media--3x4 media--violet" data-media>
+              <img src="assets/images/generals/07-kurogane.jpg" alt="Kurogane, o Regente de Cinzas" loading="lazy" decoding="async">
+              <div class="media__ph" aria-hidden="true"><span class="media__kanji">灰</span></div>
+            </figure>
+            <span class="general__index" aria-hidden="true">07</span>
+            <div class="general__info">
+              <p class="label general__flame">漆 · A Chama Primeira</p>
+              <h3 class="general__name">Kurogane</h3>
+              <p class="general__title">O Regente de Cinzas</p>
+            </div>
+          </article>
+          </div>
+
+          <p class="label generals__hint">Deslize para conhecer todos<svg width="16" height="16" aria-hidden="true"><use href="#i-arrow"/></svg></p>
+        </div>
       </div>
     </section>
 
@@ -414,7 +485,7 @@
 
         <div class="editions">
           <article class="edition reveal">
-            <figure class="media media--4x3" data-media><img src="assets/images/editions/padrao.jpg" alt="Capa da Edição Padrão" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">刃</span><span class="media__tag">editions/padrao.jpg</span></div></figure>
+            <figure class="media media--4x3" data-media><img src="assets/images/editions/padrao.jpg" alt="Capa da Edição Padrão" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">刃</span></div></figure>
             <div class="edition__body">
               <h3 class="edition__name">Edição Padrão</h3>
               <p class="edition__price">R$ 249,90</p>
@@ -428,7 +499,7 @@
 
           <article class="edition edition--featured reveal">
             <span class="label edition__ribbon">Recomendada</span>
-            <figure class="media media--4x3 media--violet" data-media><img src="assets/images/editions/murasaki.jpg" alt="Arte da Edição Murasaki" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">紫</span><span class="media__tag">editions/murasaki.jpg</span></div></figure>
+            <figure class="media media--4x3 media--violet" data-media><img src="assets/images/editions/murasaki.jpg" alt="Arte da Edição Murasaki" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">紫</span></div></figure>
             <div class="edition__body">
               <h3 class="edition__name">Edição Murasaki</h3>
               <p class="edition__price">R$ 329,90</p>
@@ -444,7 +515,7 @@
           </article>
 
           <article class="edition reveal">
-            <figure class="media media--4x3" data-media><img src="assets/images/editions/colecionador.jpg" alt="Caixa da Edição de Colecionador" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">鍔</span><span class="media__tag">editions/colecionador.jpg</span></div></figure>
+            <figure class="media media--4x3" data-media><img src="assets/images/editions/colecionador.jpg" alt="Caixa da Edição de Colecionador" loading="lazy" decoding="async"><div class="media__ph" aria-hidden="true"><span class="media__kanji">鍔</span></div></figure>
             <div class="edition__body">
               <h3 class="edition__name">Edição de Colecionador</h3>
               <p class="edition__price">R$ 899,90</p>
@@ -561,7 +632,7 @@
       </video>
       <div class="media__ph trailer__ph" aria-hidden="true">
         <span class="media__kanji">予告</span>
-        <span class="trailer__soon"><span class="label u-gold">Trailer oficial</span><span class="trailer__soon-title">Estreia em breve</span><span class="media__tag">videos/trailer.mp4</span></span>
+        <span class="trailer__soon"><span class="label u-gold">Trailer oficial</span><span class="trailer__soon-title">Estreia em breve</span></span>
       </div>
     </figure>
   </dialog>
@@ -577,6 +648,7 @@
   <script src="js/modules/reveal.js" defer></script>
   <script src="js/modules/scroll-effects.js" defer></script>
   <script src="js/modules/combat-tabs.js" defer></script>
+  <script src="js/modules/generals.js" defer></script>
   <script src="js/modules/hotspots.js" defer></script>
   <script src="js/modules/modal.js" defer></script>
   <script src="js/modules/purchase.js" defer></script>

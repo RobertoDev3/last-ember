@@ -1,10 +1,132 @@
-.generals-section .section-head { margin-bottom: 48px; }
+/* Os Sete Generais
+   Com .is-pinned em .generals-scroll (definido por js/modules/generals.js), a seção fica presa
+   na tela e a faixa de generais desliza para o lado conforme a rolagem. O JS define
+   --distance (quanto a faixa anda, em px) e --p (progresso 0–1). Sem .is-pinned (movimento
+   reduzido ou tela muito baixa), vira uma faixa com rolagem lateral comum. */
 
-/* Faixa horizontal com snap; alinhada à margem do container */
-.generals {
+.generals-section { padding-block: 0; }
+
+.generals-scroll {
+  /* Margem alinhada ao container do site; o % é resolvido em relação à largura da tela */
   --edge: max(var(--gutter), calc((100% - var(--container)) / 2 + var(--gutter)));
+  --intro-w: clamp(300px, 30vw, 420px);
+  --card-h: min(64vh, 600px);
+  position: relative;
+  padding-block: var(--section-pad);
+}
+
+.generals-scroll.is-pinned {
+  height: calc(100vh + var(--distance, 0px));
+  padding-block: 0;
+}
+
+.generals-pin { position: relative; }
+
+.is-pinned .generals-pin {
+  position: sticky;
+  top: 0;
   display: flex;
-  gap: 20px;
+  align-items: center;
+  height: 100vh;
+  height: 100svh;
+  padding-top: var(--header-h);
+  overflow: hidden;
+}
+
+/* ---------- Introdução ---------- */
+.generals-intro {
+  max-width: calc(var(--container));
+  margin: 0 auto 48px;
+  padding-inline: var(--gutter);
+}
+.generals-intro__title { max-width: 680px; }
+.generals-intro__lede { margin-top: 24px; }
+
+.is-pinned .generals-intro {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: calc(var(--edge) + var(--intro-w) + 64px);
+  max-width: none;
+  margin: 0;
+  padding: var(--header-h) 64px 0 var(--edge);
+  /* Os generais que já passaram somem por baixo deste degradê */
+  background: linear-gradient(90deg, var(--c-bg-deep) 0%, var(--c-bg-deep) 72%, rgba(9, 8, 10, 0) 100%);
+  pointer-events: none;
+}
+.is-pinned .generals-intro__title { font-size: clamp(40px, 4.4vw, 64px); }
+.is-pinned .generals-intro__lede { font-size: 16px; }
+
+/* Contador e barra de progresso (só na seção presa) */
+.generals-progress { display: none; }
+.is-pinned .generals-progress {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 40px;
+}
+.generals-progress__count {
+  font-family: var(--f-display);
+  font-size: 15px;
+  letter-spacing: .1em;
+  color: var(--c-faint);
+  white-space: nowrap;
+}
+.generals-progress__count b {
+  margin-right: 4px;
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--c-gold);
+}
+.generals-progress__bar {
+  position: relative;
+  flex: 1;
+  max-width: 180px;
+  height: 1px;
+  background: rgba(212, 175, 90, .2);
+}
+.generals-progress__fill {
+  position: absolute;
+  inset: 0;
+  background: var(--c-gold);
+  box-shadow: 0 0 8px rgba(212, 175, 90, .6);
+  transform: scaleX(var(--p, 0));
+  transform-origin: left;
+}
+
+/* Kanji gigante do general em destaque, ao fundo */
+.generals__bg-kanji { display: none; }
+.is-pinned .generals__bg-kanji {
+  position: absolute;
+  z-index: 0;
+  right: -2vw;
+  bottom: -8vh;
+  display: block;
+  font-family: var(--f-display);
+  font-size: min(72vh, 48vw);
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(212, 175, 90, .045);
+  pointer-events: none;
+  user-select: none;
+}
+.generals__bg-kanji.is-changing { animation: kanji-in .9s var(--ease-out) both; }
+@keyframes kanji-in {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ---------- Faixa de generais ---------- */
+.generals {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 24px;
   padding: 12px var(--edge) 32px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -16,42 +138,131 @@
 .generals::-webkit-scrollbar { height: 6px; }
 .generals::-webkit-scrollbar-thumb { background: rgba(212, 175, 90, .35); }
 
-.general {
-  flex: 0 0 270px;
-  scroll-snap-align: start;
-  transition: transform .5s var(--ease-out);
+.is-pinned .generals {
+  flex: none;
+  gap: 28px;
+  width: max-content;
+  padding: 0 var(--edge) 0 calc(var(--edge) + var(--intro-w) + 64px);
+  overflow: visible;
+  scroll-snap-type: none;
+  will-change: transform;
 }
-.general:hover { transform: translateY(-8px); }
-.general:hover .media__kanji { color: rgba(212, 175, 90, .14); }
 
-.general__flame { margin: 20px 0 6px; color: var(--c-gold); font-size: 11px; }
+/* ---------- Carta do general ---------- */
+.general {
+  position: relative;
+  flex: none;
+  width: 300px;
+  scroll-snap-align: start;
+  transition: opacity .7s var(--ease-out), transform .7s var(--ease-out), filter .7s var(--ease-out);
+}
+.general .media { transition: box-shadow .7s var(--ease-out); }
+
+.is-pinned .general {
+  width: calc(var(--card-h) * .75);
+  opacity: .38;
+  filter: saturate(.45) brightness(.7);
+  transform: scale(.9);
+  cursor: pointer;
+}
+.is-pinned .general.is-active {
+  opacity: 1;
+  filter: none;
+  transform: none;
+  cursor: default;
+}
+.is-pinned .general.is-active .media {
+  box-shadow: inset 0 0 0 1px var(--c-gold), 0 30px 90px -30px rgba(212, 175, 90, .4);
+}
+
+/* Número vazado no canto */
+.general__index {
+  position: absolute;
+  z-index: 3;
+  top: 16px;
+  left: 20px;
+  font-family: var(--f-display);
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(212, 175, 90, .8);
+  pointer-events: none;
+}
+
+/* Nome e título sobre a imagem */
+.general__info {
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 72px 22px 22px;
+  background: linear-gradient(to top, rgba(7, 6, 8, .96) 0%, rgba(7, 6, 8, .75) 45%, rgba(7, 6, 8, 0) 100%);
+  pointer-events: none;
+}
+.general__flame { margin: 0 0 8px; color: var(--c-gold); font-size: 11px; }
 .general__name {
   margin: 0;
   font-family: var(--f-display);
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
+  line-height: 1.1;
   color: var(--c-fg-strong);
 }
-.general__title { margin: 4px 0 0; color: var(--c-faint); font-size: 15px; }
+.general__title { margin: 6px 0 0; color: var(--c-fg-soft); font-size: 15px; }
 
-.general--boss { flex-basis: 300px; }
+/* Kurogane, o chefe final, em violeta */
 .general--boss .media {
   background-color: #120C1A;
   box-shadow: inset 0 0 0 1px rgba(165, 124, 240, .5), 0 0 60px rgba(165, 124, 240, .12);
 }
+.is-pinned .general--boss.is-active .media {
+  box-shadow: inset 0 0 0 1px var(--c-violet), 0 30px 100px -20px rgba(165, 124, 240, .45);
+}
 .general--boss .general__flame { color: var(--c-violet); }
-.general--boss .general__name { font-size: 28px; font-weight: 800; }
+.general--boss .general__index { -webkit-text-stroke-color: rgba(165, 124, 240, .85); }
+.general--boss .general__name { font-size: 32px; font-weight: 800; }
 
+/* Dica de deslizar (só na faixa comum) */
 .generals__hint {
   display: flex;
   align-items: center;
   gap: 10px;
   margin: 8px 0 0;
+  padding-inline: var(--edge);
   color: var(--c-dim);
   font-size: 10px;
 }
+.is-pinned .generals__hint { display: none; }
+
+/* ---------- Tablet e celular ---------- */
+@media (max-width: 960px) {
+  .generals-scroll { --card-h: min(50vh, 460px); }
+
+  .is-pinned .generals-pin {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 28px;
+  }
+  .is-pinned .generals-intro {
+    position: static;
+    width: auto;
+    padding: 0 var(--gutter);
+    background: none;
+  }
+  .is-pinned .generals-intro__title { font-size: clamp(30px, 8vw, 44px); }
+  .is-pinned .generals-intro__lede { display: none; }
+  .is-pinned .generals-progress { margin-top: 18px; }
+  .is-pinned .generals { padding-left: var(--gutter); }
+  .is-pinned .generals__bg-kanji { font-size: 90vw; bottom: auto; top: 10vh; }
+
+  .general__index { font-size: 36px; }
+  .general__name { font-size: 24px; }
+  .general--boss .general__name { font-size: 28px; }
+}
 
 @media (max-width: 560px) {
-  .general { flex-basis: 74%; }
-  .general--boss { flex-basis: 80%; }
+  .general { width: 74%; }
 }
