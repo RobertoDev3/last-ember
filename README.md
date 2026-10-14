@@ -4,6 +4,8 @@
 
 Landing page promocional de **Last Ember**, um jogo samurai fictício. Feita com HTML, CSS e JavaScript puros: sem frameworks, sem dependências e sem etapa de build.
 
+**Site no ar:** https://last-ember-gilt.vercel.app
+
 > Projeto de portfólio. O jogo, o estúdio (Kuroame Studio), os preços e as datas são fictícios.
 
 ## A história

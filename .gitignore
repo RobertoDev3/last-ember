@@ -15,3 +15,5 @@ node_modules/
 *.psd
 *.zip
 *.log
+
+.vercel
