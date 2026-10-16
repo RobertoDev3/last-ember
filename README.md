@@ -1,6 +1,6 @@
 # Last Ember
 
-[![Last Ember](assets/images/social/og-image.jpg)](https://last-ember-gilt.vercel.app)
+[![Last Ember](docs/capa.jpg)](https://last-ember-gilt.vercel.app)
 
 [![Ver o site no ar](https://img.shields.io/badge/ver_o_site_no_ar-last--ember--gilt.vercel.app-D4AF5A?style=for-the-badge&logo=vercel&logoColor=white&labelColor=0B0A0C)](https://last-ember-gilt.vercel.app)
 
