@@ -1,7 +1,4 @@
-/**
- * Brasas flutuantes: gera partículas em cada [data-embers="N"].
- * As posições são pseudoaleatórias e estáveis (mesma aparência a cada visita).
- */
+/* posições pseudoaleatórias e estáveis: as brasas ficam iguais a cada visita */
 (function (LE) {
   'use strict';
 

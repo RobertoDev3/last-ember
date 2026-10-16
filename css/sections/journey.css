@@ -1,6 +1,4 @@
-/* A Jornada — cinco capítulos ligados por um pavio que queima conforme a rolagem.
-   --wick (0–1) é atualizado por js/modules/scroll-effects.js. Cada capítulo ganha .is-lit
-   quando o pavio o alcança. */
+/* --wick (0–1) e .is-lit vêm de js/modules/scroll-effects.js */
 
 .journey {
   position: relative;
@@ -108,7 +106,6 @@
   color: var(--c-muted);
 }
 
-/* Medidor da brasa */
 .meter {
   display: flex;
   flex-wrap: wrap;

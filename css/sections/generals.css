@@ -1,8 +1,4 @@
-/* Os Sete Generais
-   Com .is-pinned em .generals-scroll (definido por js/modules/generals.js), a seção fica presa
-   na tela e a faixa de generais desliza para o lado conforme a rolagem. O JS define
-   --distance (quanto a faixa anda, em px) e --p (progresso 0–1). Sem .is-pinned (movimento
-   reduzido ou tela muito baixa), vira uma faixa com rolagem lateral comum. */
+/* .is-pinned, --distance (px) e --p (0–1) são definidos por js/modules/generals.js */
 
 .generals-section { padding-block: 0; }
 
@@ -33,7 +29,6 @@
   overflow: hidden;
 }
 
-/* ---------- Introdução ---------- */
 .generals-intro {
   max-width: calc(var(--container));
   margin: 0 auto 48px;
@@ -62,7 +57,6 @@
 .is-pinned .generals-intro__title { font-size: clamp(40px, 4.4vw, 64px); }
 .is-pinned .generals-intro__lede { font-size: 16px; }
 
-/* Contador e barra de progresso (só na seção presa) */
 .generals-progress { display: none; }
 .is-pinned .generals-progress {
   display: flex;
@@ -99,7 +93,6 @@
   transform-origin: left;
 }
 
-/* Kanji gigante do general em destaque, ao fundo */
 .generals__bg-kanji { display: none; }
 .is-pinned .generals__bg-kanji {
   position: absolute;
@@ -121,7 +114,6 @@
   to   { opacity: 1; transform: none; }
 }
 
-/* ---------- Faixa de generais ---------- */
 .generals {
   position: relative;
   z-index: 1;
@@ -148,7 +140,6 @@
   will-change: transform;
 }
 
-/* ---------- Carta do general ---------- */
 .general {
   position: relative;
   flex: none;
@@ -175,7 +166,6 @@
   box-shadow: inset 0 0 0 1px var(--c-gold), 0 30px 90px -30px rgba(212, 175, 90, .4);
 }
 
-/* Número vazado no canto */
 .general__index {
   position: absolute;
   z-index: 3;
@@ -190,7 +180,6 @@
   pointer-events: none;
 }
 
-/* Nome e título sobre a imagem */
 .general__info {
   position: absolute;
   z-index: 3;
@@ -212,7 +201,6 @@
 }
 .general__title { margin: 6px 0 0; color: var(--c-fg-soft); font-size: 15px; }
 
-/* Kurogane, o chefe final, em violeta */
 .general--boss .media {
   background-color: #120C1A;
   box-shadow: inset 0 0 0 1px rgba(165, 124, 240, .5), 0 0 60px rgba(165, 124, 240, .12);
@@ -224,7 +212,6 @@
 .general--boss .general__index { -webkit-text-stroke-color: rgba(165, 124, 240, .85); }
 .general--boss .general__name { font-size: 32px; font-weight: 800; }
 
-/* Dica de deslizar (só na faixa comum) */
 .generals__hint {
   display: flex;
   align-items: center;
@@ -236,7 +223,6 @@
 }
 .is-pinned .generals__hint { display: none; }
 
-/* ---------- Tablet e celular ---------- */
 @media (max-width: 960px) {
   .generals-scroll { --card-h: min(50vh, 460px); }
 

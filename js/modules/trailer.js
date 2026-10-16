@@ -1,7 +1,4 @@
-/**
- * Modal do trailer. Carrega assets/videos/trailer.mp4 só quando aberto.
- * Enquanto o arquivo não existir, mostra o aviso "Estreia em breve".
- */
+/* carrega assets/videos/trailer.mp4 só quando o modal abre; sem o arquivo mostra "Estreia em breve" */
 (function (LE) {
   'use strict';
 

@@ -1,7 +1,3 @@
-/* Hero — ocupa 100% da altura da tela.
-   A mídia (imagem ou vídeo em assets/videos/hero-loop.mp4) fica à direita no desktop
-   e no topo no celular. */
-
 .hero {
   position: relative;
   height: 100vh;
@@ -154,7 +150,6 @@
   opacity: .85;
 }
 
-/* Indicador de rolagem */
 .scroll-cue {
   position: absolute;
   left: 50%;
@@ -189,7 +184,6 @@
 }
 @keyframes cue-drip { to { top: 100%; } }
 
-/* ---------- Tablet e celular ---------- */
 @media (max-width: 960px) {
   .hero__media {
     inset: 0;

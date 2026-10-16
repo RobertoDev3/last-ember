@@ -1,12 +1,4 @@
-/**
- * Combate — abas de técnicas (padrão WAI-ARIA Tabs: clique, setas, Home/End)
- * ligadas à rolagem.
- *
- * Quando a seção fica presa na tela (.is-pinned), a posição da rolagem escolhe a técnica:
- * cada uma ocupa um trecho da seção e, depois da última, a página volta a descer.
- * Clicar numa aba rola até o trecho dela. Com movimento reduzido ou tela muito baixa,
- * a seção não fica presa e as abas funcionam só no clique.
- */
+/* .is-pinned: cada técnica ocupa um trecho da seção presa; sem ela (movimento reduzido ou tela baixa) viram abas comuns */
 (function (LE) {
   'use strict';
 
@@ -57,7 +49,6 @@
           LE.refreshScroll();
         }
 
-        /** Rola até o trecho da técnica (seção presa) ou só troca a aba (abas comuns) */
         function goTo(index, focus) {
           select(index, focus);
           if (!isPinned() || !LE.smooth) return;

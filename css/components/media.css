@@ -1,7 +1,4 @@
-/* Espaços de mídia.
-   Cada .media aponta para um arquivo em assets/images (ou assets/videos). Enquanto o arquivo
-   não existir, aparece só o fundo decorativo (textura, cantoneiras e kanji); quando o arquivo
-   for adicionado, js/modules/media.js marca .is-loaded e a imagem entra com fade. */
+/* .is-loaded é aplicada por js/modules/media.js quando o arquivo carrega */
 
 .media {
   position: relative;
@@ -34,7 +31,6 @@
 .js .media.is-loaded > img,
 .js .media.is-loaded > video { opacity: 1; }
 
-/* Placeholder */
 .media__ph {
   position: absolute;
   inset: 0;
@@ -45,7 +41,6 @@
 }
 .media.is-loaded .media__ph { opacity: 0; pointer-events: none; }
 
-/* Cantoneiras douradas */
 .media__ph::before,
 .media__ph::after {
   content: "";
@@ -70,7 +65,6 @@
   transition: color .6s;
 }
 
-/* Brilho violeta vindo de baixo */
 .media::after {
   content: "";
   position: absolute;

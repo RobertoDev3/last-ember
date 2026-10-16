@@ -1,9 +1,3 @@
-/**
- * Efeitos ligados à rolagem:
- *  - Hero: o texto sobe e esmaece levemente ao sair da tela.
- *  - Jornada: o pavio queima conforme o leitor avança e acende cada capítulo.
- *  - Interlúdio: paralaxe suave na imagem de fundo.
- */
 (function (LE) {
   'use strict';
 
@@ -12,15 +6,12 @@
       var vh = window.innerHeight;
       window.addEventListener('resize', function () { vh = window.innerHeight; });
 
-      // ---- Hero ----
       var heroContent = LE.qs('[data-hero-content]');
 
-      // ---- Jornada ----
       var journey = LE.qs('[data-journey]');
       var wick = LE.qs('[data-wick]');
       var chapters = LE.qsa('[data-chapter]');
 
-      // ---- Interlúdio ----
       var parallaxImg = LE.qs('[data-parallax]');
       var parallaxSection = LE.qs('[data-parallax-section]');
 

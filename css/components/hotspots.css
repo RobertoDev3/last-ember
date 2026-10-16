@@ -1,5 +1,3 @@
-/* Pontos de detalhe sobre o retrato */
-
 .hotspot {
   position: absolute;
   left: var(--x);
@@ -70,7 +68,6 @@
 .hotspot:focus-visible .hotspot__tip,
 .hotspot.is-open .hotspot__tip { opacity: 1; transform: translate(0, -50%); }
 
-/* Toque: as dicas viram uma legenda numerada abaixo do retrato */
 @media (max-width: 960px), (hover: none) {
   .hotspot__tip { display: none; }
 }

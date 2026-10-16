@@ -1,8 +1,3 @@
-/**
- * Controle genérico de modais (<dialog>):
- * trava a rolagem, fecha no botão [data-modal-close], com Esc ou clicando fora,
- * e devolve o foco ao elemento que abriu.
- */
 (function (LE) {
   'use strict';
 
@@ -34,7 +29,6 @@
             close(dialog);
             return;
           }
-          // Clique no fundo (fora da caixa)
           if (e.target === dialog) {
             var r = dialog.getBoundingClientRect();
             var inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;

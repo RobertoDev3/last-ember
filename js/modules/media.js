@@ -1,9 +1,4 @@
-/**
- * Espaços de mídia ([data-media]).
- * Quando a imagem/vídeo indicado existe, ele aparece com fade e o placeholder some.
- * Quando o arquivo ainda não existe, o placeholder com o nome esperado continua visível.
- * Suporta data-fallback na <img> para usar uma imagem alternativa.
- */
+/* mostra a mídia quando o arquivo existe, senão fica o placeholder; data-fallback na <img> define uma alternativa */
 (function (LE) {
   'use strict';
 

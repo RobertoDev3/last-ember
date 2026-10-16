@@ -24,7 +24,6 @@ body {
   overflow-x: clip;
 }
 
-/* Bloqueio de rolagem quando menu/modal estão abertos */
 html.is-locked,
 html.is-locked body { overflow: hidden; }
 

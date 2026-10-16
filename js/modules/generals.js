@@ -1,12 +1,4 @@
-/**
- * Os Sete Generais — faixa horizontal ligada à rolagem.
- *
- * Quando a seção fica presa na tela (.is-pinned), rolar para baixo desliza os generais
- * para o lado, um de cada vez; depois do último, a página volta a descer.
- * O general em foco ganha .is-active, o contador e a barra avançam e o kanji do fundo muda.
- * Clicar num general fora de foco rola até ele.
- * Com movimento reduzido ou tela muito baixa, vira uma faixa com rolagem lateral comum.
- */
+/* .is-pinned: a rolagem desliza a faixa de generais; sem ela (movimento reduzido ou tela baixa) vira uma faixa com rolagem lateral */
 (function (LE) {
   'use strict';
 
@@ -23,8 +15,8 @@
       var kanjiEl = LE.qs('[data-generals-kanji]', scroller);
       var canPin = window.matchMedia(MIN_PIN_HEIGHT);
 
-      var step = 0;      // distância entre um general e o próximo (px)
-      var distance = 0;  // quanto a faixa anda do primeiro ao último (px)
+      var step = 0;
+      var distance = 0;
       var active = -1;
       var lastX = null;
 
@@ -79,7 +71,6 @@
         setActive(Math.round(x / step));
       });
 
-      // Clique num general fora de foco: rola até ele
       cards.forEach(function (card, i) {
         card.addEventListener('click', function () {
           if (!distance || i === active || !LE.smooth) return;

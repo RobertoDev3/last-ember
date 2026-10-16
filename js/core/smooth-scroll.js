@@ -1,11 +1,7 @@
 /**
- * SmoothScroll — rolagem suave com inércia (sem dependências).
- *
- * - Roda do mouse/trackpad: interpola a posição com lerp, dando a sensação de inércia.
- * - Toque (celular/tablet): mantém a rolagem nativa, que já é suave.
- * - Teclado, barra de rolagem e leitores de tela continuam funcionando normalmente.
- * - Respeita prefers-reduced-motion.
- * - scrollTo(alvo) anima até âncoras com easing.
+ * Rolagem suave com inércia para roda do mouse e trackpad.
+ * Toque, teclado e barra de rolagem continuam nativos; desativada com prefers-reduced-motion.
+ * Elementos com [data-native-scroll] rolam por conta própria.
  */
 (function (window, document, LE) {
   'use strict';
@@ -19,9 +15,9 @@
 
     this.current = window.scrollY;
     this.target = this.current;
-    this.isRunning = false;   // animação de roda em andamento
-    this.isStopped = false;   // pausado (menu/modal abertos)
-    this.tween = null;        // animação programática (scrollTo)
+    this.isRunning = false;
+    this.isStopped = false;   // stop()/start(): menu e modais travam a rolagem
+    this.tween = null;
     this.rafId = null;
 
     this.wheelEnabled = !LE.reducedMotion && window.matchMedia('(pointer: fine)').matches;
@@ -41,7 +37,6 @@
     return Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
   };
 
-  /** Verifica se o evento ocorreu dentro de um elemento que rola por conta própria */
   SmoothScroll.prototype._isInsideScrollable = function (el, deltaY) {
     while (el && el !== document.body && el !== document.documentElement) {
       if (el.hasAttribute && el.hasAttribute('data-native-scroll')) return true;
@@ -61,7 +56,6 @@
 
   SmoothScroll.prototype._onWheel = function (e) {
     if (this.isStopped || e.ctrlKey || e.defaultPrevented) return;
-    // Gestos horizontais (ex.: faixa dos generais) ficam nativos
     if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
     if (this._isInsideScrollable(e.target, e.deltaY)) return;
 
@@ -71,7 +65,6 @@
 
     e.preventDefault();
 
-    // Uma rolagem de roda interrompe qualquer animação de âncora
     if (this.tween) {
       this.tween = null;
       this.current = window.scrollY;
@@ -83,7 +76,6 @@
   };
 
   SmoothScroll.prototype._onNativeScroll = function () {
-    // Rolagem vinda de teclado, barra de rolagem ou toque: sincroniza o estado
     if (!this.isRunning && !this.tween) {
       this.current = window.scrollY;
       this.target = this.current;
@@ -92,7 +84,7 @@
 
   SmoothScroll.prototype._start = function () {
     this.isRunning = true;
-    if (this.rafId) return; // o laço já está rodando
+    if (this.rafId) return;
     this.lastTime = null;
     this.rafId = window.requestAnimationFrame(this._raf);
   };
@@ -101,8 +93,7 @@
     this.rafId = null;
     if (!this.isRunning) return;
 
-    // Tempo desde o último quadro, normalizado para 60 fps (1 = 16,7 ms).
-    // Limitado para que uma travada do navegador não cause um salto brusco.
+    // tempo do quadro normalizado para 60 fps; limitado para uma travada do navegador não virar salto
     var frames = this.lastTime === null ? 1 : LE.clamp((now - this.lastTime) / (1000 / 60), 0.25, 3);
     this.lastTime = now;
 
@@ -120,7 +111,6 @@
         return;
       }
     } else {
-      // Interpolação independente da taxa de quadros: a mesma sensação a 60, 120 ou 144 Hz
       var factor = 1 - Math.pow(1 - this.lerp, frames);
       this.current += (this.target - this.current) * factor;
       if (Math.abs(this.target - this.current) < 0.3) this.current = this.target;
@@ -134,11 +124,6 @@
     this.rafId = window.requestAnimationFrame(this._raf);
   };
 
-  /**
-   * Rola até um elemento ou posição.
-   * @param {Element|number} target
-   * @param {{offset?: number, onComplete?: Function, immediate?: boolean}} opts
-   */
   SmoothScroll.prototype.scrollTo = function (target, opts) {
     opts = opts || {};
     var y = typeof target === 'number'
@@ -161,7 +146,7 @@
       to: y,
       duration: duration,
       startTime: performance.now(),
-      ease: function (t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); }, // easeOutExpo
+      ease: function (t) { return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); },
       onComplete: opts.onComplete
     };
     this.current = this.tween.from;

@@ -25,7 +25,6 @@
 .btn--block { width: 100%; }
 .btn--icon-left.btn--lg { padding: 0 26px 0 16px; }
 
-/* Ouro: corte diagonal nos cantos e um brilho que atravessa no hover */
 .btn--gold {
   background: var(--c-gold);
   color: var(--c-on-gold);
@@ -42,7 +41,6 @@
 .btn--gold:hover { background: var(--c-gold-hi); color: var(--c-on-gold); }
 .btn--gold:hover::before { transform: translateX(120%); }
 
-/* Contorno */
 .btn--ghost {
   background: rgba(11, 10, 12, .35);
   color: var(--c-fg-strong);

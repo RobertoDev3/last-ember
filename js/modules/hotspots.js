@@ -1,6 +1,3 @@
-/**
- * Pontos de detalhe do retrato: hover no desktop, clique/toque alterna a dica.
- */
 (function (LE) {
   'use strict';
 

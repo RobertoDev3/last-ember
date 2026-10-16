@@ -1,7 +1,3 @@
-/**
- * Âncoras internas (#secao): rolagem suave compensando a altura do cabeçalho.
- * Atualiza o endereço sem "pular" a página.
- */
 (function (LE) {
   'use strict';
 

@@ -1,7 +1,4 @@
-/* Combate
-   Com .is-pinned em .combat-scroll (definido por js/modules/combat-tabs.js), a seção fica presa
-   na tela e a rolagem passa pelas quatro técnicas; depois da última, a página volta a descer.
-   Sem .is-pinned (movimento reduzido ou tela muito baixa), funciona como abas comuns. */
+/* .is-pinned é aplicada por js/modules/combat-tabs.js; sem ela a seção funciona como abas comuns */
 
 .combat-section {
   padding-block: 0;
@@ -60,7 +57,7 @@
   text-align: left;
   transition: color .3s, background-color .3s;
 }
-/* Linha dourada da aba ativa. Na seção presa, ela enche conforme a rolagem avança (--step 0–1). */
+/* --step (0–1) vem da rolagem na seção presa */
 .tech::after {
   content: "";
   position: absolute;
@@ -102,7 +99,6 @@
   line-height: 1.25;
 }
 
-/* Dica de rolagem (só na seção presa) */
 .combat__hint {
   display: none;
   align-items: center;
@@ -148,7 +144,6 @@
   color: var(--c-fg-soft);
 }
 
-/* Na seção presa, a imagem se ajusta à altura da tela para tudo caber sem cortar */
 .is-pinned .combat__panel .media {
   width: min(100%, calc((100svh - var(--header-h) - 200px) * 16 / 9));
 }
@@ -178,7 +173,6 @@
   .tech__kanji { font-size: 26px; }
   .tech__name { font-size: 18px; }
 
-  /* Seção presa no celular: abas compactas numa linha só */
   .is-pinned .combat { gap: 18px; }
   .is-pinned .eyebrow { margin-bottom: 10px; }
   .is-pinned .combat-section__title { margin-bottom: 18px; font-size: clamp(30px, 8vw, 44px); }
@@ -194,7 +188,6 @@
   .is-pinned .combat__panel p { margin-top: 16px; font-size: 15px; }
 }
 
-/* Notebooks com tela baixa: compacta a coluna das abas para tudo caber presa na tela */
 @media (min-width: 961px) and (max-height: 760px) {
   .is-pinned .combat-section__title { margin-bottom: 20px; font-size: clamp(34px, 3.6vw, 48px); }
   .is-pinned .eyebrow { margin-bottom: 12px; }

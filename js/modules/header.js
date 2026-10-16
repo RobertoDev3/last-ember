@@ -1,7 +1,3 @@
-/**
- * Cabeçalho: fundo e linha só aparecem depois que a rolagem começa;
- * recolhe ao descer e reaparece ao subir; destaca a seção atual no menu.
- */
 (function (LE) {
   'use strict';
 
@@ -27,7 +23,6 @@
         lastY = y;
       });
 
-      // Link ativo conforme a seção visível
       var links = LE.qsa('.main-nav__link');
       var sections = links
         .map(function (link) { return document.getElementById(link.hash.slice(1)); })

@@ -1,7 +1,4 @@
-/* ==========================================================================
-   Last Ember — folha de estilos principal
-   Ordem: base → layout → componentes → seções
-   ========================================================================== */
+/* a ordem dos imports importa: base → layout → componentes → seções */
 
 @import url("base/tokens.css");
 @import url("base/reset.css");

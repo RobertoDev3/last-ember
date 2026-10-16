@@ -1,7 +1,3 @@
-/**
- * Revela elementos .reveal ao entrarem na tela.
- * Elementos irmãos recebem um pequeno atraso em sequência.
- */
 (function (LE) {
   'use strict';
 

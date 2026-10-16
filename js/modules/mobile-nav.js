@@ -1,7 +1,3 @@
-/**
- * Menu móvel (hambúrguer): abre/fecha, trava a rolagem, fecha com Esc,
- * mantém o foco dentro do painel e fecha sozinho ao voltar para o desktop.
- */
 (function (LE) {
   'use strict';
 
@@ -49,7 +45,6 @@
         else open();
       });
 
-      // Links do painel: fecha o menu e deixa o módulo de âncoras fazer a rolagem
       panel.addEventListener('click', function (e) {
         if (e.target.closest('a[href^="#"]')) close({ returnFocus: false });
       });

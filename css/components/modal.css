@@ -1,5 +1,3 @@
-/* Modais (pré-venda e trailer) — elemento <dialog> nativo */
-
 .modal {
   width: min(560px, calc(100% - 32px));
   max-height: calc(100dvh - 32px);
@@ -60,7 +58,6 @@
 }
 .modal__close:hover { color: var(--c-gold); transform: rotate(90deg); }
 
-/* ---------- Pré-venda ---------- */
 .purchase__step { padding: 24px 28px 28px; }
 
 .purchase__group {
@@ -155,7 +152,6 @@
 .purchase__code { margin: 18px 0 28px; color: var(--c-faint); font-size: 11px; }
 .purchase__code .u-select { color: var(--c-gold); letter-spacing: .12em; }
 
-/* ---------- Trailer ---------- */
 .modal--trailer {
   width: min(1100px, calc(100% - 32px));
   background: #000;

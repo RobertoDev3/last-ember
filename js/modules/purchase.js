@@ -1,8 +1,3 @@
-/**
- * Pré-venda (demonstração).
- * Os botões [data-purchase="edicao"] abrem o modal já com a edição escolhida,
- * sem rolar a página. O formulário calcula o total e mostra uma confirmação fictícia.
- */
 (function (LE) {
   'use strict';
 
@@ -64,7 +59,6 @@
         LE.qs('[data-done-title]', form).focus();
       });
 
-      // Todos os botões de compra abrem o modal no lugar — nada de pular pela página
       document.addEventListener('click', function (e) {
         var trigger = e.target.closest('[data-purchase]');
         if (!trigger) return;
